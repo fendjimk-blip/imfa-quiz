@@ -1,0 +1,110 @@
+// IMFA QUIZ - Mòd Solo
+const MAX_LEVEL = 5;
+
+function getAllQuestions() {
+  const lists = [
+    typeof QUESTIONS !== "undefined" ? QUESTIONS : [],
+    typeof QUESTIONS_NIVEAU2 !== "undefined" ? QUESTIONS_NIVEAU2 : [],
+    typeof QUESTIONS_NIVEAU1_SUITE !== "undefined" ? QUESTIONS_NIVEAU1_SUITE : [],
+    typeof PHYSIQUE_FACILE_P1 !== "undefined" ? PHYSIQUE_FACILE_P1 : [],
+    typeof PHYSIQUE_FACILE_P2 !== "undefined" ? PHYSIQUE_FACILE_P2 : [],
+    typeof PHYSIQUE_FACILE_P3 !== "undefined" ? PHYSIQUE_FACILE_P3 : [],
+    typeof PHYSIQUE_FACILE_P4 !== "undefined" ? PHYSIQUE_FACILE_P4 : [],
+    typeof PHYSIQUE_FACILE_P5 !== "undefined" ? PHYSIQUE_FACILE_P5 : [],
+    typeof PHYSIQUE_FACILE_P6 !== "undefined" ? PHYSIQUE_FACILE_P6 : [],
+    typeof PHYSIQUE_FACILE_P7 !== "undefined" ? PHYSIQUE_FACILE_P7 : [],
+    typeof PHYSIQUE_FACILE_P8 !== "undefined" ? PHYSIQUE_FACILE_P8 : [],
+    typeof PHYSIQUE_FACILE_P9 !== "undefined" ? PHYSIQUE_FACILE_P9 : [],
+    typeof PHYSIQUE_FACILE_P11 !== "undefined" ? PHYSIQUE_FACILE_P11 : [],
+    typeof PHYSIQUE_FACILE_P12 !== "undefined" ? PHYSIQUE_FACILE_P12 : [],
+    typeof PHYSIQUE_MOYEN_P1 !== "undefined" ? PHYSIQUE_MOYEN_P1 : [],
+    typeof PHYSIQUE_MOYEN_P2 !== "undefined" ? PHYSIQUE_MOYEN_P2 : [],
+    typeof PHYSIQUE_MOYEN_P3 !== "undefined" ? PHYSIQUE_MOYEN_P3 : [],
+    typeof PHYSIQUE_MOYEN_P4 !== "undefined" ? PHYSIQUE_MOYEN_P4 : [],
+    typeof PHYSIQUE_MOYEN_P5 !== "undefined" ? PHYSIQUE_MOYEN_P5 : [],
+    typeof PHYSIQUE_MOYEN_P6 !== "undefined" ? PHYSIQUE_MOYEN_P6 : [],
+    typeof PHYSIQUE_MOYEN_P7 !== "undefined" ? PHYSIQUE_MOYEN_P7 : [],
+    typeof PHYSIQUE_MOYEN_P8 !== "undefined" ? PHYSIQUE_MOYEN_P8 : [],
+    typeof PHYSIQUE_MOYEN_P9 !== "undefined" ? PHYSIQUE_MOYEN_P9 : [],
+    typeof PHYSIQUE_MOYEN_P10 !== "undefined" ? PHYSIQUE_MOYEN_P10 : [],
+    typeof PHYSIQUE_MOYEN_P11 !== "undefined" ? PHYSIQUE_MOYEN_P11 : [],
+    typeof PHYSIQUE_MOYEN_P12 !== "undefined" ? PHYSIQUE_MOYEN_P12 : [],
+    typeof PHYSIQUE_MOYEN_P13 !== "undefined" ? PHYSIQUE_MOYEN_P13 : [],
+    typeof PHYSIQUE_DIFFICILE_P1 !== "undefined" ? PHYSIQUE_DIFFICILE_P1 : [],
+    typeof PHYSIQUE_DIFFICILE_P2 !== "undefined" ? PHYSIQUE_DIFFICILE_P2 : [],
+    typeof PHYSIQUE_DIFFICILE_P3 !== "undefined" ? PHYSIQUE_DIFFICILE_P3 : [],
+    typeof PHYSIQUE_DIFFICILE_P4 !== "undefined" ? PHYSIQUE_DIFFICILE_P4 : [],
+    typeof PHYSIQUE_DIFFICILE_P5 !== "undefined" ? PHYSIQUE_DIFFICILE_P5 : [],
+    typeof PHYSIQUE_DIFFICILE_P6 !== "undefined" ? PHYSIQUE_DIFFICILE_P6 : [],
+    typeof CHIMIE_FACILE_P1 !== "undefined" ? CHIMIE_FACILE_P1 : [],
+    typeof CHIMIE_FACILE_P2 !== "undefined" ? CHIMIE_FACILE_P2 : [],
+    typeof CHIMIE_FACILE_P3A !== "undefined" ? CHIMIE_FACILE_P3A : [],
+    typeof CHIMIE_FACILE_P3B !== "undefined" ? CHIMIE_FACILE_P3B : [],
+    typeof CHIMIE_FACILE_P1 !== "undefined" ? CHIMIE_FACILE_P1 : [],
+    typeof CHIMIE_FACILE_P2 !== "undefined" ? CHIMIE_FACILE_P2 : [],
+    typeof CHIMIE_FACILE_P3A !== "undefined" ? CHIMIE_FACILE_P3A : [],
+    typeof CHIMIE_FACILE_P3B !== "undefined" ? CHIMIE_FACILE_P3B : [],
+  ];
+  const seenIds = new Set();
+  return lists.flat().filter(q => {
+    if (seenIds.has(q.id)) return false;
+    seenIds.add(q.id);
+    return true;
+  }).map(q => ({
+    ...q,
+    explanation: q.explanation || (q.explications ? q.explications[q.correct] : "")
+  }));
+}
+
+let soloUsed = new Set();
+let soloLevel = 1;
+let soloSubject = "";
+let partAnswered = 0;
+let partCorrect = 0;
+let soloSeen = 0;
+const PART_SIZE = 5;
+const PASS_MIN = 3;
+
+function soloStart(subject) {
+  soloSubject = subject;
+  soloLevel = 1;
+  soloUsed = new Set();
+  partAnswered = 0;
+  partCorrect = 0;
+  soloSeen = 0;
+  return soloDraw();
+}
+
+function soloDraw() {
+  const pool = getAllQuestions().filter(q =>
+    q.matiere === soloSubject && q.difficulte === soloLevel && !soloUsed.has(q.id)
+  );
+  if (pool.length === 0) return null;
+  const q = pool[Math.floor(Math.random() * pool.length)];
+  soloUsed.add(q.id);
+  return q;
+}
+
+function soloAfterAnswer(wasCorrect) {
+  partAnswered++;
+  if (wasCorrect) partCorrect++;
+
+  if (partAnswered < PART_SIZE) {
+    const q = soloDraw();
+    if (q) return { status: "continue", q: q };
+    return { status: "finished", summary: { level: soloLevel, correct: partCorrect, total: partAnswered, passed: false } };
+  }
+
+  const passed = partCorrect >= PASS_MIN;
+  const summary = { level: soloLevel, correct: partCorrect, total: PART_SIZE, passed: passed };
+  partAnswered = 0;
+  partCorrect = 0;
+
+  if (passed) {
+    if (soloLevel >= MAX_LEVEL) return { status: "finished", summary: summary };
+    soloLevel++;
+  }
+  const q = soloDraw();
+  if (!q) return { status: "finished", summary: summary };
+  return { status: passed ? "part_passed" : "part_failed", summary: summary, q: q };
+}

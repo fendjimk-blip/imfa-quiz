@@ -185,6 +185,48 @@ footer {
     <p>© 2026 IMFA QUIZ — Institution Mixte Frère Alexis</p>
 </footer>
 
+<script src="questions.js"></script>
+<script src="questions_niveau2.js"></script>
+<script src="questions_niveau1_suite.js"></script>
+<script src="physique_facile_p1.js"></script>
+<script src="physique_facile_p2.js"></script>
+<script src="physique_facile_p3.js"></script>
+<script src="physique_facile_p4.js"></script>
+<script src="physique_facile_p5.js"></script>
+<script src="physique_facile_p6.js"></script>
+<script src="physique_facile_p7.js"></script>
+<script src="physique_facile_p8.js"></script>
+<script src="physique_facile_p9.js"></script>
+<script src="physique_facile_p11.js"></script>
+<script src="physique_facile_p12.js"></script>
+<script src="physique_moyen_p1.js"></script>
+<script src="physique_moyen_p2.js"></script>
+<script src="physique_moyen_p3.js"></script>
+<script src="physique_moyen_p4.js"></script>
+<script src="physique_moyen_p5.js"></script>
+<script src="physique_moyen_p6.js"></script>
+<script src="physique_moyen_p7.js"></script>
+<script src="physique_moyen_p8.js"></script>
+<script src="physique_moyen_p9.js"></script>
+<script src="physique_moyen_p10.js"></script>
+<script src="physique_moyen_p11.js"></script>
+<script src="physique_moyen_p12.js"></script>
+<script src="physique_moyen_p13.js"></script>
+<script src="physique_difficile_p1.js"></script>
+<script src="physique_difficile_p2.js"></script>
+<script src="physique_difficile_p3.js"></script>
+<script src="physique_difficile_p4.js"></script>
+<script src="physique_difficile_p5.js"></script>
+<script src="physique_difficile_p6.js"></script>
+<script src="chimie_facile_p1.js"></script>
+<script src="chimie_facile_p2.js"></script>
+<script src="chimie_facile_p3a.js"></script>
+<script src="chimie_facile_p3b.js"></script>
+<script src="chimie_facile_p1.js"></script>
+<script src="chimie_facile_p2.js"></script>
+<script src="chimie_facile_p3a.js"></script>
+<script src="chimie_facile_p3b.js"></script>
+<script src="solo.js"></script>
 <script>
 const subjects = [
     "Sciences sociales",
@@ -366,23 +408,19 @@ function start() {
 
 function chooseSubject(subject) {
     selectedSubject = subject;
-
-    if (!questions[subject] || questions[subject].length === 0) {
+    const first = soloStart(subject);
+    if (!first) {
         alert("Aucune question disponible.");
         return;
     }
-
-    currentQuestions = [...questions[subject]];
+    currentQuestions = [first];
     index = 0;
     score = 0;
-
     document.getElementById("currentSubject").textContent = subject;
     document.getElementById("currentLevel").textContent =
         document.getElementById("level").value;
-
     document.getElementById("selection").classList.add("hidden");
     document.getElementById("quiz").classList.remove("hidden");
-
     showQuestion();
 }
 
@@ -456,13 +494,23 @@ function checkAnswer(choice) {
 }
 
 function nextQuestion() {
-    index++;
+    const wasCorrect = score > soloSeen;
+    soloSeen = score;
+    const r = soloAfterAnswer(wasCorrect);
 
-    if (index < currentQuestions.length) {
-        showQuestion();
-    } else {
+    if (r.status === "finished") {
         finishQuiz();
+        return;
     }
+    if (r.status !== "continue") {
+        const s = r.summary;
+        alert(s.passed
+            ? "Bravo ! Nivo " + s.level + " pase (" + s.correct + "/" + s.total + ")."
+            : "Nivo " + s.level + " : " + s.correct + "/" + s.total + ". Il faut 3/5 pour passer. Nouvel essai.");
+    }
+    currentQuestions.push(r.q);
+    index++;
+    showQuestion();
 }
 
 function finishQuiz() {
@@ -481,5 +529,6 @@ function finishQuiz() {
 }
 </script>
 
+<script src="parties.js"></script>
 </body>
   </html>
