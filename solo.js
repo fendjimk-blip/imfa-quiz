@@ -40,11 +40,41 @@ function getAllQuestions() {
     typeof CHIMIE_FACILE_P2 !== "undefined" ? CHIMIE_FACILE_P2 : [],
     typeof CHIMIE_FACILE_P3A !== "undefined" ? CHIMIE_FACILE_P3A : [],
     typeof CHIMIE_FACILE_P3B !== "undefined" ? CHIMIE_FACILE_P3B : [],
-    typeof CHIMIE_FACILE_P1 !== "undefined" ? CHIMIE_FACILE_P1 : [],
-    typeof CHIMIE_FACILE_P2 !== "undefined" ? CHIMIE_FACILE_P2 : [],
-    typeof CHIMIE_FACILE_P3A !== "undefined" ? CHIMIE_FACILE_P3A : [],
-    typeof CHIMIE_FACILE_P3B !== "undefined" ? CHIMIE_FACILE_P3B : [],
-  ];
+    typeof CHIMIE_FACILE_P4A !== "undefined" ? CHIMIE_FACILE_P4A : [],
+    typeof CHIMIE_FACILE_P4B !== "undefined" ? CHIMIE_FACILE_P4B : [],
+    typeof CHIMIE_FACILE_P5A !== "undefined" ? CHIMIE_FACILE_P5A : [],
+    typeof CHIMIE_FACILE_P5B !== "undefined" ? CHIMIE_FACILE_P5B : [],
+    typeof CHIMIE_MOYEN_P2A !== "undefined" ? CHIMIE_MOYEN_P2A : [],
+    typeof CHIMIE_MOYEN_P2B !== "undefined" ? CHIMIE_MOYEN_P2B : [],
+  
+    typeof CHIMIE_MOYEN_P1A !== "undefined" ? CHIMIE_MOYEN_P1A : [],
+
+    typeof CHIMIE_MOYEN_P1B !== "undefined" ? CHIMIE_MOYEN_P1B : [],
+
+    typeof CHIMIE_MOYEN_P3A !== "undefined" ? CHIMIE_MOYEN_P3A : [],
+
+    typeof CHIMIE_MOYEN_P3B !== "undefined" ? CHIMIE_MOYEN_P3B : [],
+
+    typeof CHIMIE_MOYEN_P4A !== "undefined" ? CHIMIE_MOYEN_P4A : [],
+
+    typeof CHIMIE_MOYEN_P4B !== "undefined" ? CHIMIE_MOYEN_P4B : [],
+
+    typeof CHIMIE_DIFFICILE_P1A !== "undefined" ? CHIMIE_DIFFICILE_P1A : [],
+
+    typeof CHIMIE_DIFFICILE_P1B !== "undefined" ? CHIMIE_DIFFICILE_P1B : [],
+
+    typeof CHIMIE_DIFFICILE_P2A !== "undefined" ? CHIMIE_DIFFICILE_P2A : [],
+
+    typeof CHIMIE_DIFFICILE_P2B !== "undefined" ? CHIMIE_DIFFICILE_P2B : [],
+
+    typeof CHIMIE_DIFFICILE_P3A !== "undefined" ? CHIMIE_DIFFICILE_P3A : [],
+
+    typeof CHIMIE_DIFFICILE_P3B !== "undefined" ? CHIMIE_DIFFICILE_P3B : [],
+
+    typeof CHIMIE_DIFFICILE_P4A !== "undefined" ? CHIMIE_DIFFICILE_P4A : [],
+
+    typeof CHIMIE_DIFFICILE_P4B !== "undefined" ? CHIMIE_DIFFICILE_P4B : [],
+];
   const seenIds = new Set();
   return lists.flat().filter(q => {
     if (seenIds.has(q.id)) return false;
