@@ -74,11 +74,49 @@ function getAllQuestions() {
     typeof CHIMIE_DIFFICILE_P4A !== "undefined" ? CHIMIE_DIFFICILE_P4A : [],
 
     typeof CHIMIE_DIFFICILE_P4B !== "undefined" ? CHIMIE_DIFFICILE_P4B : [],
+    typeof HISTOIRE_DIFFICILE_P1A !== "undefined" ? HISTOIRE_DIFFICILE_P1A : [],
+    typeof HISTOIRE_DIFFICILE_P1B !== "undefined" ? HISTOIRE_DIFFICILE_P1B : [],
+    typeof HISTOIRE_DIFFICILE_P2A !== "undefined" ? HISTOIRE_DIFFICILE_P2A : [],
+    typeof HISTOIRE_DIFFICILE_P2B !== "undefined" ? HISTOIRE_DIFFICILE_P2B : [],
+    typeof HISTOIRE_DIFFICILE_P3A !== "undefined" ? HISTOIRE_DIFFICILE_P3A : [],
+    typeof HISTOIRE_DIFFICILE_P3B !== "undefined" ? HISTOIRE_DIFFICILE_P3B : [],
+    typeof HISTOIRE_DIFFICILE_P4A !== "undefined" ? HISTOIRE_DIFFICILE_P4A : [],
+    typeof HISTOIRE_DIFFICILE_P4B !== "undefined" ? HISTOIRE_DIFFICILE_P4B : [],
+    typeof HISTOIRE_FACILE_P1A !== "undefined" ? HISTOIRE_FACILE_P1A : [],
+    typeof HISTOIRE_FACILE_P1B !== "undefined" ? HISTOIRE_FACILE_P1B : [],
+    typeof HISTOIRE_FACILE_P2A !== "undefined" ? HISTOIRE_FACILE_P2A : [],
+    typeof HISTOIRE_FACILE_P2B !== "undefined" ? HISTOIRE_FACILE_P2B : [],
+    typeof HISTOIRE_FACILE_P3A !== "undefined" ? HISTOIRE_FACILE_P3A : [],
+    typeof HISTOIRE_FACILE_P3B !== "undefined" ? HISTOIRE_FACILE_P3B : [],
+    typeof HISTOIRE_FACILE_P4A !== "undefined" ? HISTOIRE_FACILE_P4A : [],
+    typeof HISTOIRE_FACILE_P4B !== "undefined" ? HISTOIRE_FACILE_P4B : [],
+    typeof HISTOIRE_MOYEN_P1A !== "undefined" ? HISTOIRE_MOYEN_P1A : [],
+    typeof HISTOIRE_MOYEN_P1B !== "undefined" ? HISTOIRE_MOYEN_P1B : [],
+    typeof HISTOIRE_MOYEN_P2A !== "undefined" ? HISTOIRE_MOYEN_P2A : [],
+    typeof HISTOIRE_MOYEN_P2B !== "undefined" ? HISTOIRE_MOYEN_P2B : [],
+    typeof HISTOIRE_MOYEN_P3A !== "undefined" ? HISTOIRE_MOYEN_P3A : [],
+    typeof HISTOIRE_MOYEN_P3B !== "undefined" ? HISTOIRE_MOYEN_P3B : [],
+    typeof HISTOIRE_MOYEN_P4A !== "undefined" ? HISTOIRE_MOYEN_P4A : [],
+    typeof HISTOIRE_MOYEN_P4B !== "undefined" ? HISTOIRE_MOYEN_P4B : [],
+    typeof educationCitoyennete_facile_p1 !== "undefined" ? educationCitoyennete_facile_p1 : [],
+    typeof educationCitoyennete_facile_p2 !== "undefined" ? educationCitoyennete_facile_p2 : [],
+    typeof educationCitoyennete_facile_p3 !== "undefined" ? educationCitoyennete_facile_p3 : [],
+    typeof educationCitoyennete_facile_p4 !== "undefined" ? educationCitoyennete_facile_p4 : [],
+    typeof educationCitoyennete_facile_p5 !== "undefined" ? educationCitoyennete_facile_p5 : [],
+    typeof educationCitoyennete_facile_p6 !== "undefined" ? educationCitoyennete_facile_p6 : [],
+    typeof educationCitoyennete_moyen_p1 !== "undefined" ? educationCitoyennete_moyen_p1 : [],
 ];
   const seenIds = new Set();
   return lists.flat().filter(q => {
-    if (seenIds.has(q.id)) return false;
-    seenIds.add(q.id);
+    if (!q || !q.id) return false;
+
+    if (q.matiere === "Histoire") {
+      q = { ...q, matiere: "Sciences sociales" };
+    }
+
+    const key = `${q.matiere}|${q.difficulte}|${q.id}`;
+    if (seenIds.has(key)) return false;
+    seenIds.add(key);
     return true;
   }).map(q => ({
     ...q,
