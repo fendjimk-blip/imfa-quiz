@@ -1,6 +1,6 @@
 const MATHEMATIQUES_FACILE_P4 = [
   {
-    id: "MAT-071",
+    id: "MAT-081",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -10,7 +10,7 @@ const MATHEMATIQUES_FACILE_P4 = [
     explanation: "Le coefficient est le nombre qui multiplie la variable. Ici, c'est 7. y est la variable et 7y est le terme entier."
   },
   {
-    id: "MAT-072",
+    id: "MAT-082",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -20,7 +20,7 @@ const MATHEMATIQUES_FACILE_P4 = [
     explanation: "La lettre a représente la variable. 4 est son coefficient, 3 est une constante et 4a est un terme."
   },
   {
-    id: "MAT-073",
+    id: "MAT-083",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -30,7 +30,7 @@ const MATHEMATIQUES_FACILE_P4 = [
     explanation: "Un binôme comporte deux termes. Un monôme en comporte un seul et un trinôme en comporte trois."
   },
   {
-    id: "MAT-074",
+    id: "MAT-084",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -40,7 +40,7 @@ const MATHEMATIQUES_FACILE_P4 = [
     explanation: "8 est une constante : sa valeur ne dépend d'aucune variable. 5 est un coefficient et x est une variable."
   },
   {
-    id: "MAT-075",
+    id: "MAT-085",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -50,7 +50,7 @@ const MATHEMATIQUES_FACILE_P4 = [
     explanation: "La commutativité permet de changer l'ordre des termes sans changer la somme. L'associativité concerne le regroupement."
   },
   {
-    id: "MAT-076",
+    id: "MAT-086",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -60,7 +60,7 @@ const MATHEMATIQUES_FACILE_P4 = [
     explanation: "C'est la distributivité de la multiplication sur l'addition : le facteur a multiplie chacun des deux termes."
   },
   {
-    id: "MAT-077",
+    id: "MAT-087",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -70,7 +70,7 @@ const MATHEMATIQUES_FACILE_P4 = [
     explanation: "Le symbole > signifie « est strictement supérieur à ». Il ne signifie pas supérieur ou égal."
   },
   {
-    id: "MAT-078",
+    id: "MAT-088",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -80,7 +80,7 @@ const MATHEMATIQUES_FACILE_P4 = [
     explanation: "Un nombre négatif multiplié par un nombre positif donne un résultat négatif."
   },
   {
-    id: "MAT-079",
+    id: "MAT-089",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -90,7 +90,7 @@ const MATHEMATIQUES_FACILE_P4 = [
     explanation: "Le produit de deux nombres de même signe est positif. Deux signes négatifs donnent donc un signe positif."
   },
   {
-    id: "MAT-080",
+    id: "MAT-090",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -100,7 +100,7 @@ const MATHEMATIQUES_FACILE_P4 = [
     explanation: "Le quotient de deux nombres de signes contraires est négatif. Il n'est pas nécessairement égal à -1."
   },
   {
-    id: "MAT-081",
+    id: "MAT-091",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -110,7 +110,7 @@ const MATHEMATIQUES_FACILE_P4 = [
     explanation: "135° est compris entre 90° et 180° : il appartient au deuxième quadrant."
   },
   {
-    id: "MAT-082",
+    id: "MAT-092",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -120,7 +120,7 @@ const MATHEMATIQUES_FACILE_P4 = [
     explanation: "315° est compris entre 270° et 360° : il appartient au quatrième quadrant."
   },
   {
-    id: "MAT-083",
+    id: "MAT-093",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -130,7 +130,7 @@ const MATHEMATIQUES_FACILE_P4 = [
     explanation: "-30° est équivalent à 330° après ajout de 360°. 330° appartient au quatrième quadrant."
   },
   {
-    id: "MAT-084",
+    id: "MAT-094",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -140,7 +140,7 @@ const MATHEMATIQUES_FACILE_P4 = [
     explanation: "180° se trouve sur l'axe horizontal négatif. Un angle situé sur un axe n'appartient à aucun quadrant."
   },
   {
-    id: "MAT-085",
+    id: "MAT-095",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -150,7 +150,7 @@ const MATHEMATIQUES_FACILE_P4 = [
     explanation: "Dans le quatrième quadrant, le sinus est négatif et le cosinus est positif. Les deux signes sont différents."
   },
   {
-    id: "MAT-086",
+    id: "MAT-096",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -160,7 +160,7 @@ const MATHEMATIQUES_FACILE_P4 = [
     explanation: "Un triangle équilatéral possède trois côtés de même longueur. Un triangle isocèle en possède au moins deux."
   },
   {
-    id: "MAT-087",
+    id: "MAT-097",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -170,7 +170,7 @@ const MATHEMATIQUES_FACILE_P4 = [
     explanation: "Un triangle isocèle possède au moins deux côtés de même longueur. Un triangle équilatéral en possède trois."
   },
   {
-    id: "MAT-088",
+    id: "MAT-098",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -180,7 +180,7 @@ const MATHEMATIQUES_FACILE_P4 = [
     explanation: "Un rectangle possède quatre angles droits. Ses côtés opposés sont égaux, mais ses quatre côtés ne sont pas nécessairement égaux."
   },
   {
-    id: "MAT-089",
+    id: "MAT-099",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -190,7 +190,7 @@ const MATHEMATIQUES_FACILE_P4 = [
     explanation: "Un carré possède simultanément quatre côtés égaux et quatre angles droits. Il est donc aussi un rectangle et un losange."
   },
   {
-    id: "MAT-090",
+    id: "MAT-100",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -200,7 +200,7 @@ const MATHEMATIQUES_FACILE_P4 = [
     explanation: "Le périmètre mesure la longueur totale du contour d'une figure. L'aire mesure sa surface intérieure."
   },
   {
-    id: "MAT-091",
+    id: "MAT-101",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -210,7 +210,7 @@ const MATHEMATIQUES_FACILE_P4 = [
     explanation: "-4 est un entier relatif négatif. 0,4 et 1/4 ne sont pas des entiers, tandis que 4 est positif."
   },
   {
-    id: "MAT-092",
+    id: "MAT-102",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -220,7 +220,7 @@ const MATHEMATIQUES_FACILE_P4 = [
     explanation: "3/5 est rationnel car il peut s'écrire comme le quotient de deux entiers avec un dénominateur non nul. √2, π et √3 sont irrationnels."
   },
   {
-    id: "MAT-093",
+    id: "MAT-103",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -230,7 +230,7 @@ const MATHEMATIQUES_FACILE_P4 = [
     explanation: "√2 est irrationnel : il ne peut pas s'écrire comme une fraction de deux entiers. Les autres nombres proposés sont rationnels."
   },
   {
-    id: "MAT-094",
+    id: "MAT-104",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -240,7 +240,7 @@ const MATHEMATIQUES_FACILE_P4 = [
     explanation: "0 est l'élément neutre de l'addition, car ajouter 0 à un nombre ne change pas sa valeur. 1 est l'élément neutre de la multiplication."
   },
   {
-    id: "MAT-095",
+    id: "MAT-105",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,

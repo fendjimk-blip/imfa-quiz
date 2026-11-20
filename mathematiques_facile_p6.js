@@ -1,6 +1,6 @@
 const mathematiquesFacileP6 = [
 {
-  id: "MAT-121",
+  id: "MAT-131",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,
@@ -10,7 +10,7 @@ const mathematiquesFacileP6 = [
   explanation: "Une variable représente une quantité qui peut prendre différentes valeurs. Ce n'est pas nécessairement un nombre négatif ou nul."
 },
 {
-  id: "MAT-122",
+  id: "MAT-132",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,
@@ -20,7 +20,7 @@ const mathematiquesFacileP6 = [
   explanation: "Le coefficient numérique de x est 7. x est la variable et 7x est le terme complet."
 },
 {
-  id: "MAT-123",
+  id: "MAT-133",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,
@@ -30,7 +30,7 @@ const mathematiquesFacileP6 = [
   explanation: "Le symbole < signifie strictement inférieur. ≤ autorise aussi l'égalité."
 },
 {
-  id: "MAT-124",
+  id: "MAT-134",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,
@@ -40,7 +40,7 @@ const mathematiquesFacileP6 = [
   explanation: "Le double de x est 2x. x + 2 signifie augmenter x de deux unités."
 },
 {
-  id: "MAT-125",
+  id: "MAT-135",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,
@@ -50,7 +50,7 @@ const mathematiquesFacileP6 = [
   explanation: "Un monôme est une expression algébrique constituée d'un seul terme. Un binôme en contient deux."
 },
 {
-  id: "MAT-126",
+  id: "MAT-136",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,
@@ -60,7 +60,7 @@ const mathematiquesFacileP6 = [
   explanation: "Le produit de deux nombres de même signe est positif. Deux signes négatifs donnent donc un résultat positif."
 },
 {
-  id: "MAT-127",
+  id: "MAT-137",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,
@@ -70,7 +70,7 @@ const mathematiquesFacileP6 = [
   explanation: "Le quotient de deux nombres de signes différents est négatif."
 },
 {
-  id: "MAT-128",
+  id: "MAT-138",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,
@@ -80,7 +80,7 @@ const mathematiquesFacileP6 = [
   explanation: "La commutativité permet de changer l'ordre des termes sans changer la somme."
 },
 {
-  id: "MAT-129",
+  id: "MAT-139",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,
@@ -90,7 +90,7 @@ const mathematiquesFacileP6 = [
   explanation: "L'associativité permet de modifier le regroupement des termes sans changer le résultat."
 },
 {
-  id: "MAT-130",
+  id: "MAT-140",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,
@@ -100,7 +100,7 @@ const mathematiquesFacileP6 = [
   explanation: "√a désigne la racine carrée principale de a lorsque celle-ci est définie dans les réels."
 },
 {
-  id: "MAT-131",
+  id: "MAT-141",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,
@@ -110,7 +110,7 @@ const mathematiquesFacileP6 = [
   explanation: "Un angle droit mesure exactement 90°. Un angle aigu est inférieur à 90°."
 },
 {
-  id: "MAT-132",
+  id: "MAT-142",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,
@@ -120,7 +120,7 @@ const mathematiquesFacileP6 = [
   explanation: "Un angle plat mesure exactement 180°, tandis qu'un angle droit mesure 90°."
 },
 {
-  id: "MAT-133",
+  id: "MAT-143",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,
@@ -130,7 +130,7 @@ const mathematiquesFacileP6 = [
   explanation: "Un hexagone possède six côtés. Un pentagone en possède cinq."
 },
 {
-  id: "MAT-134",
+  id: "MAT-144",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,
@@ -140,7 +140,7 @@ const mathematiquesFacileP6 = [
   explanation: "Un rectangle possède quatre angles droits. Un losange n'a pas nécessairement quatre angles droits."
 },
 {
-  id: "MAT-135",
+  id: "MAT-145",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,
@@ -150,7 +150,7 @@ const mathematiquesFacileP6 = [
   explanation: "L'unité de base de longueur du système international est le mètre, symbole m."
 },
 {
-  id: "MAT-136",
+  id: "MAT-146",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,
@@ -160,7 +160,7 @@ const mathematiquesFacileP6 = [
   explanation: "-3 est un entier relatif négatif. Il n'appartient pas aux entiers naturels."
 },
 {
-  id: "MAT-137",
+  id: "MAT-147",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,
@@ -170,7 +170,7 @@ const mathematiquesFacileP6 = [
   explanation: "√2 est irrationnel : il ne peut pas s'écrire comme le quotient de deux entiers. Les autres nombres proposés sont rationnels."
 },
 {
-  id: "MAT-138",
+  id: "MAT-148",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,
@@ -180,7 +180,7 @@ const mathematiquesFacileP6 = [
   explanation: "Zéro est un nombre réel. Il est également rationnel et entier."
 },
 {
-  id: "MAT-139",
+  id: "MAT-149",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,
@@ -190,7 +190,7 @@ const mathematiquesFacileP6 = [
   explanation: "45° est compris entre 0° et 90° : il se trouve dans le premier quadrant."
 },
 {
-  id: "MAT-140",
+  id: "MAT-150",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,
@@ -200,7 +200,7 @@ const mathematiquesFacileP6 = [
   explanation: "135° est compris entre 90° et 180° : il se trouve dans le deuxième quadrant."
 },
 {
-  id: "MAT-141",
+  id: "MAT-151",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,
@@ -210,7 +210,7 @@ const mathematiquesFacileP6 = [
   explanation: "225° est compris entre 180° et 270° : il se trouve dans le troisième quadrant."
 },
 {
-  id: "MAT-142",
+  id: "MAT-152",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,
@@ -220,7 +220,7 @@ const mathematiquesFacileP6 = [
   explanation: "315° est compris entre 270° et 360° : il se trouve dans le quatrième quadrant."
 },
 {
-  id: "MAT-143",
+  id: "MAT-153",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,
@@ -230,7 +230,7 @@ const mathematiquesFacileP6 = [
   explanation: "90° se trouve sur l'axe vertical positif. Un angle situé exactement sur un axe n'appartient à aucun quadrant."
 },
 {
-  id: "MAT-144",
+  id: "MAT-154",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,
@@ -240,7 +240,7 @@ const mathematiquesFacileP6 = [
   explanation: "Dans le premier quadrant, le sinus et le cosinus sont tous les deux positifs."
 },
 {
-  id: "MAT-145",
+  id: "MAT-155",
   matiere: "Mathématiques",
   niveau_scolaire: "primaire",
   difficulte: 1,

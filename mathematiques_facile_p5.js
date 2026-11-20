@@ -1,6 +1,6 @@
 const MATHEMATIQUES_FACILE_P5 = [
   {
-    id: "MAT-096",
+    id: "MAT-106",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -10,7 +10,7 @@ const MATHEMATIQUES_FACILE_P5 = [
     explanation: "Le coefficient de m est 9, car c'est le nombre qui multiplie la variable. -4 est la constante."
   },
   {
-    id: "MAT-097",
+    id: "MAT-107",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -20,7 +20,7 @@ const MATHEMATIQUES_FACILE_P5 = [
     explanation: "Les deux termes sont 6x et 2y. Le signe + les sépare."
   },
   {
-    id: "MAT-098",
+    id: "MAT-108",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -30,7 +30,7 @@ const MATHEMATIQUES_FACILE_P5 = [
     explanation: "Le résultat d'une multiplication s'appelle le produit. La somme vient de l'addition."
   },
   {
-    id: "MAT-099",
+    id: "MAT-109",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -40,7 +40,7 @@ const MATHEMATIQUES_FACILE_P5 = [
     explanation: "Le symbole ≤ signifie inférieur ou égal. Le symbole < signifie strictement inférieur."
   },
   {
-    id: "MAT-100",
+    id: "MAT-110",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -50,7 +50,7 @@ const MATHEMATIQUES_FACILE_P5 = [
     explanation: "L'associativité permet de modifier le regroupement des termes sans changer leur ordre. La commutativité, elle, change l'ordre."
   },
   {
-    id: "MAT-101",
+    id: "MAT-111",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -60,7 +60,7 @@ const MATHEMATIQUES_FACILE_P5 = [
     explanation: "Multiplier un nombre par 1 ne change pas sa valeur. L'élément neutre de la multiplication est donc 1."
   },
   {
-    id: "MAT-102",
+    id: "MAT-112",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -70,7 +70,7 @@ const MATHEMATIQUES_FACILE_P5 = [
     explanation: "La somme de deux nombres négatifs est négative. Elle n'est pas nécessairement égale à -1."
   },
   {
-    id: "MAT-103",
+    id: "MAT-113",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -80,7 +80,7 @@ const MATHEMATIQUES_FACILE_P5 = [
     explanation: "Un nombre impair de facteurs négatifs donne un produit négatif. Ici, les trois facteurs sont négatifs."
   },
   {
-    id: "MAT-104",
+    id: "MAT-114",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -90,7 +90,7 @@ const MATHEMATIQUES_FACILE_P5 = [
     explanation: "Un nombre pair de facteurs négatifs donne un produit positif. Il y a quatre facteurs négatifs."
   },
   {
-    id: "MAT-105",
+    id: "MAT-115",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -100,7 +100,7 @@ const MATHEMATIQUES_FACILE_P5 = [
     explanation: "225° est compris entre 180° et 270°. Il appartient donc au troisième quadrant."
   },
   {
-    id: "MAT-106",
+    id: "MAT-116",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -110,7 +110,7 @@ const MATHEMATIQUES_FACILE_P5 = [
     explanation: "60° est compris entre 0° et 90°. Il appartient au premier quadrant."
   },
   {
-    id: "MAT-107",
+    id: "MAT-117",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -120,7 +120,7 @@ const MATHEMATIQUES_FACILE_P5 = [
     explanation: "Dans le deuxième quadrant, le sinus est positif et le cosinus est négatif."
   },
   {
-    id: "MAT-108",
+    id: "MAT-118",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -130,7 +130,7 @@ const MATHEMATIQUES_FACILE_P5 = [
     explanation: "Dans le troisième quadrant, le sinus et le cosinus sont tous les deux négatifs."
   },
   {
-    id: "MAT-109",
+    id: "MAT-119",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -140,7 +140,7 @@ const MATHEMATIQUES_FACILE_P5 = [
     explanation: "90° se trouve sur l'axe vertical positif. Un angle situé sur un axe n'appartient à aucun quadrant."
   },
   {
-    id: "MAT-110",
+    id: "MAT-120",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -150,7 +150,7 @@ const MATHEMATIQUES_FACILE_P5 = [
     explanation: "Un angle plat mesure exactement 180°. Un angle droit mesure 90°."
   },
   {
-    id: "MAT-111",
+    id: "MAT-121",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -160,7 +160,7 @@ const MATHEMATIQUES_FACILE_P5 = [
     explanation: "Un hexagone est un polygone qui possède six côtés. Un pentagone en possède cinq."
   },
   {
-    id: "MAT-112",
+    id: "MAT-122",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -170,7 +170,7 @@ const MATHEMATIQUES_FACILE_P5 = [
     explanation: "Un pentagone possède cinq côtés. Un hexagone en possède six et un octogone huit."
   },
   {
-    id: "MAT-113",
+    id: "MAT-123",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -180,7 +180,7 @@ const MATHEMATIQUES_FACILE_P5 = [
     explanation: "Un quadrilatère convexe possède deux diagonales, chacune reliant deux sommets opposés."
   },
   {
-    id: "MAT-114",
+    id: "MAT-124",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -190,7 +190,7 @@ const MATHEMATIQUES_FACILE_P5 = [
     explanation: "Dans la géométrie plane euclidienne, la somme des trois angles intérieurs d'un triangle est 180°."
   },
   {
-    id: "MAT-115",
+    id: "MAT-125",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -200,7 +200,7 @@ const MATHEMATIQUES_FACILE_P5 = [
     explanation: "Les entiers relatifs comprennent les entiers positifs, les entiers négatifs et zéro."
   },
   {
-    id: "MAT-116",
+    id: "MAT-126",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -210,7 +210,7 @@ const MATHEMATIQUES_FACILE_P5 = [
     explanation: "Zéro appartient à l'ensemble des entiers relatifs. Il n'est ni positif ni négatif."
   },
   {
-    id: "MAT-117",
+    id: "MAT-127",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -220,7 +220,7 @@ const MATHEMATIQUES_FACILE_P5 = [
     explanation: "2/4 est équivalente à 1/2, car le numérateur et le dénominateur de 1/2 ont été multipliés par 2."
   },
   {
-    id: "MAT-118",
+    id: "MAT-128",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -230,7 +230,7 @@ const MATHEMATIQUES_FACILE_P5 = [
     explanation: "Le numérateur est le nombre placé au-dessus de la barre de fraction. Le dénominateur est placé en dessous."
   },
   {
-    id: "MAT-119",
+    id: "MAT-129",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
@@ -240,7 +240,7 @@ const MATHEMATIQUES_FACILE_P5 = [
     explanation: "Un kilomètre vaut exactement 1 000 mètres. Un hectomètre vaut 100 mètres."
   },
   {
-    id: "MAT-120",
+    id: "MAT-130",
     matiere: "Mathématiques",
     niveau_scolaire: "primaire",
     difficulte: 1,
