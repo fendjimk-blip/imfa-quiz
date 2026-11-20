@@ -1,7 +1,9 @@
-// IMFA QUIZ - Pati pa matyè: 5 kesyon chak, 3/5 pou debloke pati ki vin apre
+// IMFA QUIZ - Pati pa matyè: 5 kesyon chak
+// Sekans ki repete: 3 FACILE, 3 MOYEN, 2 DIFFICILE
 const PARTY_SIZE = 5;
 const STORE_KEY = "imfa_pati_v1";
-const LEVELS = { 1: "FACILE", 2: "FACILE", 3: "MOYEN", 4: "DIFFICILE", 5: "DIFFICILE" };
+const CYCLE = [1, 1, 1, 3, 3, 3, 4, 4];
+const LEVEL_NAME = { 1: "FACILE", 2: "FACILE", 3: "MOYEN", 4: "DIFFICILE", 5: "DIFFICILE" };
 
 let curSubject = "";
 let curPart = 0;
@@ -19,11 +21,26 @@ function saveProgress(p) {
 }
 
 function buildParts(subject) {
-  const qs = getAllQuestions()
-    .filter(q => q.matiere === subject)
-    .sort((a, b) => a.difficulte - b.difficulte || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+  const pools = { 1: [], 3: [], 4: [] };
+  getAllQuestions()
+    .filter(q => q.matiere === subject && pools[q.difficulte])
+    .forEach(q => pools[q.difficulte].push(q));
+  Object.keys(pools).forEach(k =>
+    pools[k].sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0)));
+
   const parts = [];
-  for (let i = 0; i < qs.length; i += PARTY_SIZE) parts.push(qs.slice(i, i + PARTY_SIZE));
+  let slot = 0;
+  while (true) {
+    let lv = CYCLE[slot % CYCLE.length];
+    slot++;
+    if (pools[lv].length === 0) {
+      const alt = [1, 3, 4].find(x => pools[x].length > 0);
+      if (alt === undefined) break;
+      lv = alt;
+    }
+    const questions = pools[lv].splice(0, PARTY_SIZE);
+    parts.push({ questions: questions, level: lv });
+  }
   return parts;
 }
 
@@ -60,32 +77,25 @@ function showParts(subject) {
   info.textContent = "Chak pati gen 5 kesyon. Ou bezwen 3/5 pou debloke pati ki vin apre.";
   el.appendChild(info);
 
-  let lastLevel = "";
-  partsList.forEach((chunk, i) => {
-    const lv = LEVELS[chunk[0].difficulte] || "";
-    if (lv !== lastLevel) {
-      const h = document.createElement("h3");
-      h.textContent = "Nivo " + lv;
-      el.appendChild(h);
-      lastLevel = lv;
-    }
-
-    const need = passMin(chunk.length);
+  partsList.forEach((part, i) => {
+    const need = passMin(part.questions.length);
     const prevOk = i === 0 ||
-      (best[i - 1] !== undefined && best[i - 1] >= passMin(partsList[i - 1].length));
+      (best[i - 1] !== undefined && best[i - 1] >= passMin(partsList[i - 1].questions.length));
+    const name = "Pati " + (i + 1) + " — " + LEVEL_NAME[part.level];
 
     const btn = document.createElement("button");
     btn.className = "subject";
     if (!prevOk) {
-      btn.textContent = "🔒 Pati " + (i + 1);
+      btn.textContent = "🔒 " + name;
       btn.disabled = true;
       btn.style.opacity = "0.5";
-    } else if (best[i] !== undefined) {
-      btn.textContent = (best[i] >= need ? "✅ " : "🔁 ") + "Pati " + (i + 1) +
-        " (" + best[i] + "/" + chunk.length + ")";
-      btn.onclick = () => startPart(i);
     } else {
-      btn.textContent = "Pati " + (i + 1);
+      if (best[i] !== undefined) {
+        btn.textContent = (best[i] >= need ? "✅ " : "🔁 ") + name +
+          " (" + best[i] + "/" + part.questions.length + ")";
+      } else {
+        btn.textContent = name;
+      }
       btn.onclick = () => startPart(i);
     }
     el.appendChild(btn);
@@ -101,11 +111,11 @@ function showParts(subject) {
 
 function startPart(i) {
   curPart = i;
-  currentQuestions = partsList[i].slice();
+  currentQuestions = partsList[i].questions.slice();
   index = 0;
   score = 0;
   document.getElementById("currentSubject").textContent = curSubject + " — Pati " + (i + 1);
-  document.getElementById("currentLevel").textContent = LEVELS[partsList[i][0].difficulte] || "";
+  document.getElementById("currentLevel").textContent = LEVEL_NAME[partsList[i].level] || "";
   showOnly("quiz");
   showQuestion();
 }
