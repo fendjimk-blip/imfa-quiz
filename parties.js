@@ -30,16 +30,19 @@ function buildParts(subject) {
 
   const parts = [];
   let slot = 0;
-  while (true) {
-    let lv = CYCLE[slot % CYCLE.length];
-    slot++;
-    if (pools[lv].length === 0) {
-      const alt = [1, 3, 4].find(x => pools[x].length > 0);
-      if (alt === undefined) break;
-      lv = alt;
+  const left = () => pools[1].length + pools[3].length + pools[4].length;
+
+  while (left() >= PARTY_SIZE) {
+    // Chèche pwochen nivo nan modèl la ki gen ase kesyon pou yon pati
+    let tries = 0;
+    while (pools[CYCLE[slot % CYCLE.length]].length < PARTY_SIZE && tries < CYCLE.length) {
+      slot++;
+      tries++;
     }
-    const questions = pools[lv].splice(0, PARTY_SIZE);
-    parts.push({ questions: questions, level: lv });
+    const lv = CYCLE[slot % CYCLE.length];
+    if (pools[lv].length < PARTY_SIZE) break;
+    slot++;
+    parts.push({ questions: pools[lv].splice(0, PARTY_SIZE), level: lv });
   }
   return parts;
 }
