@@ -1,0 +1,352 @@
+const mathematiquesMoyenP6 = [
+{
+id: "MAT-421", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quelle propriété permet de remplacer a + b par b + a ?",
+a: ["Associativité", "Commutativité", "Distributivité", "Priorité"],
+correct: 1,
+explanation: "La commutativité de l'addition permet de changer l'ordre des termes sans changer la somme."
+},
+{
+id: "MAT-422", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quel est l'élément neutre de la multiplication ?",
+a: ["0", "1", "-1", "10"],
+correct: 1,
+explanation: "Multiplier un nombre par 1 ne change pas sa valeur."
+},
+{
+id: "MAT-423", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quel est l'élément neutre de l'addition ?",
+a: ["0", "1", "-1", "10"],
+correct: 0,
+explanation: "Ajouter zéro à un nombre ne change pas ce nombre."
+},
+{
+id: "MAT-424", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quelle expression représente le double de la somme de x et 5 ?",
+a: ["2x + 5", "2(x + 5)", "x + 10", "2x - 5"],
+correct: 1,
+explanation: "La somme est x + 5. Son double est 2(x + 5)."
+},
+{
+id: "MAT-425", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Dans 12 - 4x, quel est le coefficient de x ?",
+a: ["12", "4", "-4", "-12"],
+correct: 2,
+explanation: "On peut écrire 12 - 4x sous la forme 12 + (-4)x. Le coefficient est -4."
+},
+{
+id: "MAT-426", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quelle expression contient exactement deux termes ?",
+a: ["x² + 3x - 1", "4a - 7", "5x²", "a + b + c"],
+correct: 1,
+explanation: "4a et -7 sont les deux termes de cette expression."
+},
+{
+id: "MAT-427", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quel est le degré du monôme 7x³y² ?",
+a: ["2", "3", "5", "6"],
+correct: 2,
+explanation: "Le degré total d'un monôme est la somme des exposants : 3 + 2 = 5."
+},
+{
+id: "MAT-428", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quelle expression est équivalente à 2a + 3a ?",
+a: ["5a", "5a²", "6a", "5 + a"],
+correct: 0,
+explanation: "Les termes semblables s'additionnent en additionnant leurs coefficients : 2a + 3a = 5a."
+},
+{
+id: "MAT-429", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quelle écriture représente le produit de x par lui-même ?",
+a: ["2x", "x + 2", "x²", "x³"],
+correct: 2,
+explanation: "x multiplié par x s'écrit x²."
+},
+{
+id: "MAT-430", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quel est le résultat de (a + b)(a - b) sous forme développée ?",
+a: ["a² + b²", "a² - b²", "a² - 2ab + b²", "a² + 2ab + b²"],
+correct: 1,
+explanation: "Le produit de la somme par la différence donne une différence de carrés : a² - b²."
+},
+{
+id: "MAT-431", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quel est le signe du produit de cinq nombres négatifs non nuls ?",
+a: ["Positif", "Négatif", "Nul", "Impossible à déterminer"],
+correct: 1,
+explanation: "Un nombre impair de facteurs négatifs donne un produit négatif."
+},
+{
+id: "MAT-432", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quel est le signe du produit de six nombres négatifs non nuls ?",
+a: ["Positif", "Négatif", "Nul", "Toujours égal à zéro"],
+correct: 0,
+explanation: "Un nombre pair de facteurs négatifs donne un produit positif."
+},
+{
+id: "MAT-433", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quel est l'opposé de -(-8) ?",
+a: ["8", "-8", "0", "16"],
+correct: 1,
+explanation: "-(-8) vaut 8 ; son opposé est donc -8."
+},
+{
+id: "MAT-434", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quelle affirmation est vraie pour le produit d'un nombre réel par zéro ?",
+a: ["Il vaut toujours 1", "Il vaut toujours zéro", "Il garde le signe du nombre", "Il n'est pas défini"],
+correct: 1,
+explanation: "Tout nombre réel multiplié par zéro donne zéro."
+},
+{
+id: "MAT-435", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quelle est la valeur absolue de -13 ?",
+a: ["-13", "0", "13", "26"],
+correct: 2,
+explanation: "La valeur absolue représente la distance à zéro : |-13| = 13."
+},
+{
+id: "MAT-436", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quel nombre est le plus proche de zéro ?",
+a: ["-0,04", "0,4", "-0,5", "0,08"],
+correct: 0,
+explanation: "La distance de -0,04 à zéro est 0,04, la plus petite des quatre distances."
+},
+{
+id: "MAT-437", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quel est le signe de (-15) ÷ (-3) ?",
+a: ["Positif", "Négatif", "Nul", "Non défini"],
+correct: 0,
+explanation: "Le quotient de deux nombres négatifs non nuls est positif."
+},
+{
+id: "MAT-438", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quelle affirmation est correcte concernant les puissances ?",
+a: ["a² signifie a + a", "a² signifie a × a", "a² signifie 2 × a", "a² signifie a + 2"],
+correct: 1,
+explanation: "L'exposant 2 indique que la base est multipliée par elle-même."
+},
+{
+id: "MAT-439", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quelle égalité est correcte pour une base non nulle a ?",
+a: ["a³ × a² = a⁵", "a³ × a² = a⁶", "a³ × a² = a", "a³ × a² = a⁹"],
+correct: 0,
+explanation: "Lorsqu'on multiplie des puissances de même base, on additionne les exposants : 3 + 2 = 5."
+},
+{
+id: "MAT-440", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Pour a non nul, quelle égalité est correcte ?",
+a: ["a⁵ ÷ a² = a³", "a⁵ ÷ a² = a⁷", "a⁵ ÷ a² = a¹⁰", "a⁵ ÷ a² = a²"],
+correct: 0,
+explanation: "Dans un quotient de puissances de même base non nulle, on soustrait les exposants : 5 - 2 = 3."
+},
+{
+id: "MAT-441", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Dans quel quadrant se trouve un angle de 160° ?",
+a: ["I", "II", "III", "IV"],
+correct: 1,
+explanation: "160° est compris entre 90° et 180° : il appartient au deuxième quadrant."
+},
+{
+id: "MAT-442", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Dans quel quadrant se trouve un angle de 280° ?",
+a: ["I", "II", "III", "IV"],
+correct: 3,
+explanation: "280° est compris entre 270° et 360° : il appartient au quatrième quadrant."
+},
+{
+id: "MAT-443", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Dans quel quadrant se trouve un angle de -200° ?",
+a: ["I", "II", "III", "IV"],
+correct: 1,
+explanation: "-200° + 360° = 160°, donc l'angle appartient au deuxième quadrant."
+},
+{
+id: "MAT-444", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Dans quel quadrant se trouve un angle de 750° ?",
+a: ["I", "II", "III", "IV"],
+correct: 0,
+explanation: "750° - 720° = 30°, donc l'angle appartient au premier quadrant."
+},
+{
+id: "MAT-445", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quel est le signe du sinus dans le premier quadrant ?",
+a: ["Positif", "Négatif", "Nul", "Toujours égal à -1"],
+correct: 0,
+explanation: "Dans le premier quadrant, le sinus et le cosinus sont positifs."
+},
+{
+id: "MAT-446", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quel est le signe du cosinus dans le deuxième quadrant ?",
+a: ["Positif", "Négatif", "Nul", "Toujours égal à 1"],
+correct: 1,
+explanation: "Dans le deuxième quadrant, le cosinus est négatif tandis que le sinus est positif."
+},
+{
+id: "MAT-447", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quel angle est situé sur l'axe vertical positif ?",
+a: ["0°", "90°", "180°", "270°"],
+correct: 1,
+explanation: "90° correspond à la direction verticale vers le haut."
+},
+{
+id: "MAT-448", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quel angle positif est coterminal avec -30° ?",
+a: ["30°", "150°", "300°", "330°"],
+correct: 3,
+explanation: "-30° + 360° = 330°."
+},
+{
+id: "MAT-449", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quel angle appartient au troisième quadrant ?",
+a: ["80°", "175°", "260°", "350°"],
+correct: 2,
+explanation: "260° est compris entre 180° et 270°."
+},
+{
+id: "MAT-450", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quel angle n'appartient à aucun quadrant ?",
+a: ["45°", "135°", "225°", "180°"],
+correct: 3,
+explanation: "180° se trouve sur l'axe horizontal négatif, pas dans un quadrant."
+},
+{
+id: "MAT-451", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Combien de côtés possède un octogone ?",
+a: ["6", "7", "8", "9"],
+correct: 2,
+explanation: "Un octogone est un polygone à huit côtés."
+},
+{
+id: "MAT-452", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Combien de diagonales possède un hexagone convexe ?",
+a: ["6", "8", "9", "12"],
+correct: 2,
+explanation: "La formule n(n - 3)/2 donne 6(6 - 3)/2 = 9 diagonales."
+},
+{
+id: "MAT-453", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quelle propriété est toujours vraie pour un losange ?",
+a: ["Ses quatre angles sont droits", "Ses quatre côtés sont égaux", "Ses diagonales sont toujours égales", "Il possède cinq côtés"],
+correct: 1,
+explanation: "Un losange possède quatre côtés de même longueur. Ses angles ne sont pas forcément droits."
+},
+{
+id: "MAT-454", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quelle propriété caractérise un carré ?",
+a: ["Seulement deux côtés égaux", "Quatre angles droits et quatre côtés égaux", "Une seule paire de côtés parallèles", "Trois angles droits"],
+correct: 1,
+explanation: "Un carré possède quatre côtés égaux et quatre angles droits."
+},
+{
+id: "MAT-455", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Dans un triangle scalène, les côtés sont :",
+a: ["Tous égaux", "Tous de longueurs différentes", "Exactement deux égaux", "Tous perpendiculaires"],
+correct: 1,
+explanation: "Un triangle scalène possède trois côtés de longueurs différentes."
+},
+{
+id: "MAT-456", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quel angle est strictement compris entre 0° et 90° ?",
+a: ["Aigu", "Obtus", "Plat", "Rentrant"],
+correct: 0,
+explanation: "Un angle aigu mesure plus de 0° et moins de 90°."
+},
+{
+id: "MAT-457", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Deux angles adjacents qui forment un angle plat ont une somme de :",
+a: ["90°", "120°", "180°", "360°"],
+correct: 2,
+explanation: "Un angle plat mesure 180°, donc les deux angles adjacents ont cette somme."
+},
+{
+id: "MAT-458", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quelle figure possède exactement trois côtés ?",
+a: ["Quadrilatère", "Pentagone", "Triangle", "Hexagone"],
+correct: 2,
+explanation: "Un triangle est un polygone qui possède trois côtés."
+},
+{
+id: "MAT-459", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quelle propriété est vraie pour les angles correspondants lorsque deux droites parallèles sont coupées par une sécante ?",
+a: ["Ils sont égaux", "Leur somme vaut toujours 90°", "Ils sont toujours obtus", "Ils sont toujours supplémentaires"],
+correct: 0,
+explanation: "Les angles correspondants formés par deux droites parallèles et une sécante sont égaux."
+},
+{
+id: "MAT-460", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quelle propriété est vraie pour les angles alternes-internes lorsque deux droites parallèles sont coupées par une sécante ?",
+a: ["Ils sont égaux", "Ils sont toujours nuls", "Leur somme vaut 360°", "Ils sont toujours droits"],
+correct: 0,
+explanation: "Les angles alternes-internes sont égaux lorsque les deux droites sont parallèles."
+},
+{
+id: "MAT-461", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quel nombre est irrationnel ?",
+a: ["√64", "√11", "3/2", "0,25"],
+correct: 1,
+explanation: "√11 est irrationnel car 11 n'est pas un carré parfait."
+},
+{
+id: "MAT-462", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quelle fraction est équivalente à 3/4 ?",
+a: ["6/8", "6/10", "9/16", "3/8"],
+correct: 0,
+explanation: "En multipliant le numérateur et le dénominateur de 3/4 par 2, on obtient 6/8."
+},
+{
+id: "MAT-463", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quel nombre appartient à l'ensemble des entiers relatifs ?",
+a: ["-6", "2,7", "√5", "π"],
+correct: 0,
+explanation: "-6 est un entier relatif négatif. Les autres nombres ne sont pas des entiers relatifs."
+},
+{
+id: "MAT-464", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quelle écriture décimale correspond à 3/5 ?",
+a: ["0,3", "0,5", "0,6", "0,8"],
+correct: 2,
+explanation: "3 ÷ 5 = 0,6."
+},
+{
+id: "MAT-465", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quel nombre est supérieur à -1/2 ?",
+a: ["-3/4", "-2/3", "-1/4", "-1"],
+correct: 2,
+explanation: "-1/4 vaut -0,25, qui est supérieur à -0,5."
+},
+{
+id: "MAT-466", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quel est le plus petit ensemble parmi les suivants qui contient le nombre 8 ?",
+a: ["Nombres naturels", "Nombres entiers relatifs", "Nombres rationnels", "Nombres réels"],
+correct: 0,
+explanation: "8 est un nombre naturel ; les autres ensembles cités le contiennent aussi, mais sont plus larges."
+},
+{
+id: "MAT-467", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quelle affirmation est vraie pour le nombre π ?",
+a: ["Il est entier", "Il est rationnel", "Il est irrationnel", "Il est naturel"],
+correct: 2,
+explanation: "π est un nombre irrationnel : il ne peut pas s'écrire comme le quotient de deux entiers."
+},
+{
+id: "MAT-468", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quel nombre est égal à √121 ?",
+a: ["10", "11", "12", "-11"],
+correct: 1,
+explanation: "La racine carrée principale de 121 est 11, car 11 × 11 = 121."
+},
+{
+id: "MAT-469", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quel nombre possède une écriture décimale finie ?",
+a: ["1/6", "2/3", "9/20", "5/9"],
+correct: 2,
+explanation: "9/20 = 0,45. Son écriture décimale est finie."
+},
+{
+id: "MAT-470", matiere: "Mathématiques", niveau_scolaire: "secondaire", difficulte: 3,
+q: "Quelle affirmation décrit correctement l'inclusion des ensembles numériques ?",
+a: ["Tout entier naturel est un entier relatif", "Tout réel est rationnel", "Tout irrationnel est entier", "Tout rationnel est naturel"],
+correct: 0,
+explanation: "Les entiers naturels sont inclus dans les entiers relatifs. L'inclusion inverse n'est pas vraie."
+}
+];

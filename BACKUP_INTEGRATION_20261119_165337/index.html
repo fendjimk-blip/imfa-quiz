@@ -1,0 +1,584 @@
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>IMFA QUIZ | Institution Mixte Frère Alexis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#064a9b; --blue2:#0755ae; --blue-dark:#033b7c;
+  --bg:#f1f6ff; --soft:#e7f0ff; --soft2:#cfe2ff; --line:#c5d9f5;
+  --text:#17345c; --red:#d52c2c;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',Arial,sans-serif}
+html{font-size:16px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+@media (min-width:1920px){html{font-size:19px}}
+@media (min-width:2560px){html{font-size:24px}}
+@media (min-width:3840px){html{font-size:34px}}
+
+body{
+  min-height:100vh;color:var(--text);
+  background:
+    radial-gradient(900px 500px at 8% -5%, #cfe2ff 0%, transparent 60%),
+    radial-gradient(800px 500px at 100% 20%, #dbe9ff 0%, transparent 55%),
+    linear-gradient(180deg,#f1f6ff 0%,#e4eeff 100%);
+  background-attachment:fixed;
+}
+
+/* ---------- Header ---------- */
+header{
+  position:relative;overflow:hidden;color:#fff;text-align:center;
+  padding:calc(3.2rem + env(safe-area-inset-top,0px)) 1rem 4.2rem;
+  background:linear-gradient(135deg,var(--blue-dark) 0%,var(--blue) 50%,var(--blue2) 100%);
+}
+header::before,header::after{
+  content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.07);
+}
+header::before{width:22rem;height:22rem;top:-9rem;left:-6rem}
+header::after{width:16rem;height:16rem;bottom:-8rem;right:-3rem}
+header::selection{background:transparent}
+.wave{position:absolute;left:0;bottom:-1px;width:100%;height:2.6rem;display:block}
+header h1{
+  position:relative;z-index:1;font-size:clamp(2.1rem,6vw,3.4rem);font-weight:800;
+  letter-spacing:.18rem;text-shadow:0 4px 18px rgba(0,0,0,.28);
+}
+header p{position:relative;z-index:1;margin-top:.6rem;opacity:.95;font-weight:500}
+header p:last-of-type{font-weight:400;font-style:italic;opacity:.85;font-size:.95rem}
+
+/* ---------- Layout ---------- */
+.container{max-width:52rem;margin:-2rem auto 2rem;padding:0 1.2rem;position:relative;z-index:2}
+.card{
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  padding:2rem;border-radius:1.4rem;margin-bottom:1.4rem;
+  border:1px solid rgba(197,217,245,.9);
+  box-shadow:0 1px 2px rgba(6,74,155,.06),0 14px 40px rgba(6,74,155,.14);
+  animation:rise .55s cubic-bezier(.2,.8,.2,1) both;
+}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.card{animation:none}*{transition:none!important}}
+
+h2{color:var(--blue);margin-bottom:1rem;font-size:1.45rem;font-weight:700;line-height:1.3}
+p{line-height:1.6}
+
+/* ---------- Form ---------- */
+input,select{
+  width:100%;padding:1rem 1.1rem;margin:.6rem 0;font-size:1rem;color:var(--text);
+  background:#fff;border:2px solid var(--line);border-radius:.9rem;outline:none;
+  transition:border-color .2s,box-shadow .2s;
+}
+input:focus,select:focus{border-color:var(--blue2);box-shadow:0 0 0 4px rgba(7,85,174,.15)}
+
+button{
+  background:linear-gradient(135deg,var(--blue2),var(--blue));color:#fff;border:none;
+  padding:.95rem 1.8rem;border-radius:.9rem;cursor:pointer;font-size:1rem;font-weight:600;
+  margin-top:.9rem;letter-spacing:.02rem;
+  box-shadow:0 8px 20px rgba(6,74,155,.3);
+  transition:transform .15s,box-shadow .15s,background .2s;
+}
+button:hover{background:linear-gradient(135deg,var(--blue),var(--blue-dark));transform:translateY(-2px);box-shadow:0 12px 26px rgba(6,74,155,.38)}
+button:active{transform:translateY(0)}
+button:focus-visible,.subject:focus-visible{outline:3px solid #7fb0ee;outline-offset:3px}
+
+/* ---------- Subjects ---------- */
+.subjects{display:grid;grid-template-columns:repeat(auto-fit,minmax(11.5rem,1fr));gap:.9rem}
+.subject{
+  background:linear-gradient(180deg,#f3f8ff,var(--soft));padding:1.2rem 1rem;border-radius:1rem;
+  cursor:pointer;text-align:center;border:1.5px solid var(--line);font-weight:600;font-size:.95rem;
+  display:flex;align-items:center;justify-content:center;min-height:4.6rem;
+  transition:transform .18s,box-shadow .18s,background .18s,border-color .18s;
+}
+.subject:hover{
+  background:linear-gradient(180deg,#e0ecff,var(--soft2));border-color:var(--blue2);
+  transform:translateY(-4px);box-shadow:0 10px 22px rgba(6,74,155,.18);
+}
+
+/* ---------- Quiz ---------- */
+#quiz p strong{color:var(--blue)}
+#quiz hr{border:none;height:2px;background:linear-gradient(90deg,var(--line),transparent)}
+#question{font-size:1.4rem;margin-top:.4rem}
+.option{
+  display:block;width:100%;background:#edf4ff;color:var(--text);text-align:left;
+  margin:.7rem 0;border:2px solid var(--line);box-shadow:none;font-weight:500;
+  padding:1rem 1.2rem;
+}
+.option:hover:not(:disabled){background:#d6e7ff;border-color:var(--blue2);transform:translateX(5px);box-shadow:0 6px 16px rgba(6,74,155,.14)}
+.option:disabled{cursor:default;transform:none;opacity:1}
+.hidden{display:none}
+#timer{
+  display:inline-block;min-width:2.6rem;text-align:center;padding:.1rem .7rem;border-radius:2rem;
+  background:#ffeaea;color:var(--red);font-weight:700;font-size:1.2rem;
+}
+#feedback{margin-top:1rem;font-weight:500;line-height:1.6}
+#finalScore{font-size:1.1rem;line-height:1.8;background:var(--soft);padding:1.2rem;border-radius:1rem;border:1px solid var(--line)}
+
+/* ---------- Footer ---------- */
+footer{
+  text-align:center;padding:2rem 1rem;color:#fff;margin-top:2.5rem;font-size:.9rem;
+  background:linear-gradient(135deg,var(--blue-dark),var(--blue));
+}
+/* ---------- V2 ---------- */
+.hero-ico{width:5rem;height:5rem;border-radius:50%;display:grid;place-items:center;font-size:2.4rem;margin:0 auto 1rem;background:linear-gradient(135deg,var(--blue2),var(--blue));box-shadow:0 10px 24px rgba(6,74,155,.35);animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-8px)}}
+#welcome{text-align:center}
+.subject{flex-direction:column;gap:.35rem}
+.ico{font-size:1.7rem;line-height:1}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.bar{height:.7rem;background:var(--soft);border-radius:1rem;overflow:hidden;margin:.6rem 0 .2rem;border:1px solid var(--line)}
+.bar i{display:block;height:100%;width:0;border-radius:1rem;background:linear-gradient(90deg,var(--blue2),#5aa0f0);transition:width .5s ease}
+.barlabel{font-size:.85rem;font-weight:600;color:var(--blue)}
+.ring{position:relative;width:4.2rem;height:4.2rem;flex:none}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:6;stroke-linecap:round}
+.ring .bg{stroke:var(--soft2)}
+.ring .fg{stroke:var(--blue2);stroke-dasharray:163.4;stroke-dashoffset:0;transition:stroke-dashoffset 1s linear,stroke .3s}
+.ring.low .fg{stroke:var(--red)}
+.ring #timer{position:absolute;inset:0;display:grid;place-items:center;min-width:0;padding:0;background:none;color:var(--blue);font-size:1.15rem}
+.ring.low #timer{color:var(--red);animation:pulse .6s infinite alternate}
+@keyframes pulse{to{transform:scale(1.18)}}
+.option.correct{background:#c8f7d0!important;border-color:#5cc276;animation:pop .35s}
+.option.wrong{background:#ffd1d1!important;border-color:#e57373;animation:shake .4s}
+@keyframes pop{50%{transform:scale(1.03)}}
+@keyframes shake{20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+.medal{font-size:4.5rem;text-align:center;animation:pop .8s}
+.msg{text-align:center;font-weight:700;font-size:1.4rem;color:var(--blue);margin:.3rem 0 1rem}
+#board{margin-top:1.4rem}
+#board h3{color:var(--blue);margin-bottom:.6rem}
+#board ol{list-style:none}
+#board li{display:flex;justify-content:space-between;gap:1rem;padding:.65rem 1rem;margin:.4rem 0;border-radius:.8rem;background:var(--soft);border:1px solid var(--line);font-weight:500}
+#board li b{color:var(--blue)}
+#mute{position:fixed;top:calc(.7rem + env(safe-area-inset-top,0px));right:.7rem;z-index:20;margin:0;padding:.5rem .7rem;font-size:1.1rem;border-radius:2rem;background:rgba(255,255,255,.2);box-shadow:none;border:1px solid rgba(255,255,255,.5)}
+#mute:hover{background:rgba(255,255,255,.35);transform:none}
+.confetti{position:fixed;top:-1rem;width:.7rem;height:1.1rem;z-index:30;pointer-events:none;border-radius:2px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.9}}
+@media (prefers-reduced-motion:reduce){.hero-ico,.medal,.confetti{animation:none}.confetti{display:none}}
+/* ---------- V3 visuel ---------- */
+.bubbles{position:fixed;inset:0;overflow:hidden;z-index:0;pointer-events:none}
+.bubbles i{position:absolute;bottom:-8rem;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.9),rgba(90,160,240,.28));border:1px solid rgba(7,85,174,.15);animation:rise-b linear infinite}
+.bubbles i:nth-child(1){left:6%;width:3rem;height:3rem;animation-duration:18s}
+.bubbles i:nth-child(2){left:20%;width:6rem;height:6rem;animation-duration:26s;animation-delay:-8s}
+.bubbles i:nth-child(3){left:38%;width:2rem;height:2rem;animation-duration:15s;animation-delay:-3s}
+.bubbles i:nth-child(4){left:55%;width:5rem;height:5rem;animation-duration:24s;animation-delay:-12s}
+.bubbles i:nth-child(5){left:72%;width:3.5rem;height:3.5rem;animation-duration:20s;animation-delay:-6s}
+.bubbles i:nth-child(6){left:88%;width:7rem;height:7rem;animation-duration:30s;animation-delay:-15s}
+@keyframes rise-b{to{transform:translateY(-120vh) translateX(2rem)}}
+header,.container,footer{position:relative;z-index:2}
+header h1{background:linear-gradient(100deg,#fff 30%,#a9cdfa 50%,#fff 70%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;filter:drop-shadow(0 4px 12px rgba(0,0,0,.3));animation:shine 4s linear infinite}
+@keyframes shine{to{background-position:-200% 0}}
+.subject:nth-child(3n+2){background:linear-gradient(180deg,#e9f2ff,#d4e5ff)}
+.subject:nth-child(3n){background:linear-gradient(180deg,#dcebff,#bfd8fb)}
+.subject:nth-child(n):hover{background:linear-gradient(180deg,#d0e3ff,#a9cdfa)}
+button{box-shadow:0 5px 0 #033b7c,0 12px 22px rgba(6,74,155,.28)}
+button:hover{box-shadow:0 7px 0 #022a5a,0 16px 26px rgba(6,74,155,.34)}
+button:active{transform:translateY(4px);box-shadow:0 1px 0 #033b7c}
+#mute{box-shadow:none}#mute:active{transform:none}
+.option{display:flex;align-items:center;gap:.9rem;animation:slideIn .45s both}
+.option:nth-child(2){animation-delay:.07s}.option:nth-child(3){animation-delay:.14s}.option:nth-child(4){animation-delay:.21s}
+.option:active{transform:none;box-shadow:none}
+@keyframes slideIn{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:none}}
+.let{flex:none;width:2.2rem;height:2.2rem;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:.95rem;background:#fff;color:var(--blue);border:2px solid var(--line)}
+.option:hover:not(:disabled) .let{background:var(--blue2);color:#fff;border-color:var(--blue2)}
+.rres{position:relative;width:9rem;height:9rem;margin:.5rem auto 1rem}
+.rres svg{width:100%;height:100%;transform:rotate(-90deg)}
+.rres circle{fill:none;stroke-width:9;stroke-linecap:round}
+.rres .bg{stroke:var(--soft2)}
+.rres .fg{stroke:var(--blue2);stroke-dasharray:326.7;stroke-dashoffset:326.7;transition:stroke-dashoffset 1.6s cubic-bezier(.2,.8,.2,1)}
+.rres b{position:absolute;inset:0;display:grid;place-items:center;font-size:2rem;color:var(--blue)}
+.cert{margin-top:1.4rem;text-align:center;padding:1.6rem 1rem;border-radius:1.2rem;color:var(--text);background:linear-gradient(#fff,#fff) padding-box,linear-gradient(135deg,var(--blue2),#9cc4f5,var(--blue)) border-box;border:4px solid transparent;box-shadow:0 10px 26px rgba(6,74,155,.15)}
+.cert small{display:block;letter-spacing:.15rem;color:var(--blue2);font-weight:600}
+.cert h3{color:var(--blue);font-size:1.5rem;margin:.4rem 0}
+.cert .nm{font-size:1.7rem;font-weight:800;color:var(--blue-dark);margin:.5rem 0}
+/* ---------- V5 : musique douce + détails ---------- */
+#mute,#music{background:rgba(6,74,155,.88)!important;border:1px solid rgba(255,255,255,.65);color:#fff;box-shadow:0 4px 14px rgba(6,74,155,.35)!important}
+#music{position:fixed;top:calc(3.9rem + env(safe-area-inset-top,0px));right:.7rem;z-index:20;margin:0;padding:.5rem .7rem;font-size:1.1rem;border-radius:2rem}
+#music:hover,#music:active{transform:none}
+button{position:relative;overflow:hidden}
+.rip{position:absolute;border-radius:50%;background:rgba(255,255,255,.5);width:60px;height:60px;margin:-30px 0 0 -30px;transform:scale(0);animation:rip .6s linear;pointer-events:none}
+.option .rip{background:rgba(7,85,174,.2)}
+@keyframes rip{to{transform:scale(5);opacity:0}}
+.streak{display:flex;gap:.6rem;flex-wrap:wrap;margin:.7rem 0}
+.streak span{padding:.3rem .8rem;border-radius:2rem;font-size:.85rem;font-weight:600;background:var(--soft);border:1px solid var(--line);color:var(--blue)}
+.streak span.hot{background:linear-gradient(135deg,var(--blue2),var(--blue));color:#fff;border-color:transparent;animation:pop .4s}
+#greet{color:var(--blue2);font-weight:600;margin:-.4rem 0 1rem}
+.timeup{animation:shake .4s}
+</style>
+</head>
+<body>
+<div class="bubbles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<button id="music" onclick="toggleMusic()" aria-label="Musique douce">🎵</button>
+<button id="mute" onclick="toggleSound()" aria-label="Activer ou couper le son">🔊</button>
+<header>
+<h1>IMFA QUIZ</h1>
+<p>Institution Mixte Frère Alexis</p>
+<p>Le savoir, notre force ; l'excellence, notre objectif !</p>
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0,30 C240,70 480,0 720,28 C960,56 1200,6 1440,32 L1440,60 L0,60 Z" fill="#eef4ff"/></svg>
+</header>
+
+<main class="container">
+
+<section class="card" id="welcome">
+<div class="hero-ico">🎓</div>
+<h2>Bienvenue sur IMFA QUIZ !</h2>
+<p>Testez vos connaissances et relevez le défi !</p>
+<input type="text" id="player" placeholder="Entrez votre pseudonyme">
+<button onclick="start()">Commencer</button>
+</section>
+
+<section class="card hidden" id="selection">
+<h2>Choisissez une matière</h2>
+<p id="greet"></p>
+<div class="subjects" id="subjects"></div>
+<h2 style="margin-top:25px">Niveau de difficulté</h2>
+<select id="level">
+<option>Débutant</option>
+<option>Intermédiaire</option>
+<option>Avancé</option>
+<option>Expert</option>
+</select>
+</section>
+
+<section class="card hidden" id="quiz">
+<p>Matière : <strong id="currentSubject"></strong></p>
+<p>Niveau : <strong id="currentLevel"></strong></p>
+<div class="topbar"><div style="flex:1"><div class="barlabel" id="barlabel"></div><div class="bar"><i id="barfill"></i></div></div>
+<div class="ring" id="ring"><svg viewBox="0 0 60 60"><circle class="bg" cx="30" cy="30" r="26"/><circle class="fg" id="ringfg" cx="30" cy="30" r="26"/></svg><span id="timer">30</span></div></div>
+<div class="streak" id="streak"></div>
+<hr style="margin:15px 0">
+<h2 id="question"></h2>
+<div id="answers"></div>
+<p id="feedback"></p>
+<button id="next" class="hidden" onclick="nextQuestion()">Question suivante</button>
+</section>
+
+<section class="card hidden" id="result">
+<h2>Résultat final</h2>
+<div class="medal" id="medal"></div>
+<div class="rres"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" id="resfg" cx="60" cy="60" r="52"/></svg><b id="respct">0%</b></div>
+<p class="msg" id="msg"></p>
+<p id="finalScore"></p>
+<div class="cert" id="cert"></div>
+<div id="board"></div>
+<button onclick="location.reload()">Rejouer</button>
+</section>
+
+</main>
+
+<footer>
+<p>© 2026 IMFA QUIZ — Institution Mixte Frère Alexis</p>
+</footer>
+
+<script>
+const subjects = [
+"Sciences sociales","Physique","Éducation Physique et Sportive (EPS)","Leadership",
+"Éducation à la citoyenneté","Biologie","Géologie","Mathématiques","Littérature haïtienne",
+"Français","Chimie","Anglais","Espagnol"
+];
+
+const questions = {
+"Sciences sociales": [
+{ q: "Quelle est la capitale d'Haïti ?", a: ["Cap-Haïtien", "Port-au-Prince", "Les Cayes", "Jacmel"], correct: 1, explanation: "Port-au-Prince est la capitale d'Haïti." },
+{ q: "En quelle année Haïti a-t-elle proclamé son indépendance ?", a: ["1804", "1492", "1844", "1915"], correct: 0, explanation: "Haïti a proclamé son indépendance le 1er janvier 1804." }
+],
+"Physique": [
+{ q: "Quelle est l'unité SI de la force ?", a: ["Joule", "Watt", "Newton", "Mètre"], correct: 2, explanation: "Le newton (N) est l'unité SI de la force." },
+{ q: "Quelle est la vitesse de la lumière dans le vide ?", a: ["300 000 km/s", "150 km/s", "30 km/s", "3 000 km/s"], correct: 0, explanation: "Elle est d'environ 300 000 km/s." }
+],
+"Éducation Physique et Sportive (EPS)": [
+{ q: "Combien de joueurs une équipe de football compte-t-elle sur le terrain ?", a: ["9", "10", "11", "12"], correct: 2, explanation: "Une équipe de football compte 11 joueurs sur le terrain." }
+],
+"Leadership": [
+{ q: "Quelle qualité est essentielle chez un bon leader ?", a: ["L'égoïsme", "La responsabilité", "La paresse", "L'indifférence"], correct: 1, explanation: "Un bon leader doit être responsable." }
+],
+"Éducation à la citoyenneté": [
+{ q: "Quel est un devoir du citoyen ?", a: ["Respecter les lois", "Ignorer les autres", "Détruire les biens publics", "Refuser toute règle"], correct: 0, explanation: "Respecter les lois est un devoir du citoyen." }
+],
+"Biologie": [
+{ q: "Quelle structure contient l'information génétique ?", a: ["Le noyau", "La membrane", "Le cytoplasme", "La paroi"], correct: 0, explanation: "Le noyau contient l'ADN dans les cellules eucaryotes." }
+],
+"Géologie": [
+{ q: "Comment appelle-t-on l'étude de la Terre ?", a: ["Biologie", "Géologie", "Chimie", "Astronomie"], correct: 1, explanation: "La géologie étudie la Terre." }
+],
+"Mathématiques": [
+{ q: "Combien font 12 × 8 ?", a: ["86", "96", "108", "88"], correct: 1, explanation: "12 multiplié par 8 donne 96." }
+],
+"Littérature haïtienne": [
+{ q: "Qui a écrit le roman Gouverneurs de la rosée ?", a: ["Jacques Roumain", "René Depestre", "Frankétienne", "Dany Laferrière"], correct: 0, explanation: "Gouverneurs de la rosée est un roman de Jacques Roumain." }
+],
+"Français": [
+{ q: "Quel est le pluriel de « cheval » ?", a: ["Chevals", "Chevaux", "Chevales", "Chevalles"], correct: 1, explanation: "Le pluriel de cheval est chevaux." }
+],
+"Chimie": [
+{ q: "Quelle est la formule chimique de l'eau ?", a: ["CO2", "O2", "H2O", "NaCl"], correct: 2, explanation: "L'eau est composée de deux atomes d'hydrogène et d'un atome d'oxygène." }
+],
+"Anglais": [
+{ q: "What is the plural of 'child'?", a: ["Childs", "Children", "Childes", "Childrens"], correct: 1, explanation: "The plural of child is children." }
+],
+"Espagnol": [
+{ q: "Comment dit-on « Bonjour » en espagnol ?", a: ["Gracias", "Adiós", "Hola", "Por favor"], correct: 2, explanation: "Hola signifie bonjour ou salut." }
+]
+};
+
+let playerName = "";
+let selectedSubject = "";
+let currentQuestions = [];
+let index = 0;
+let score = 0;
+let timer;
+let timeLeft = 30;
+let answered = false;
+
+const icons = {"Sciences sociales":"🌍","Physique":"⚛️","Éducation Physique et Sportive (EPS)":"⚽","Leadership":"🧭","Éducation à la citoyenneté":"🤝","Biologie":"🧬","Géologie":"🪨","Mathématiques":"📐","Littérature haïtienne":"📚","Français":"✍️","Chimie":"🧪","Anglais":"🇬🇧","Espagnol":"🇪🇸"};
+let soundOn = true, ac;
+function tone(f,t,d,v){ try{ ac = ac || new (window.AudioContext||window.webkitAudioContext)(); const o=ac.createOscillator(), g=ac.createGain(); o.type="sine"; o.frequency.value=f; g.gain.setValueAtTime(v||.15,ac.currentTime+t); g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+t+d); o.connect(g); g.connect(ac.destination); o.start(ac.currentTime+t); o.stop(ac.currentTime+t+d); }catch(e){} }
+function sfx(ok){ if(!soundOn) return; if(ok){ tone(660,0,.15); tone(880,.12,.25); } else { tone(220,0,.3); tone(165,.15,.35); } }
+function toggleSound(){ soundOn=!soundOn; document.getElementById("mute").textContent = soundOn ? "🔊" : "🔇"; }
+let musicOn = true, mt = null, tick = 0, master, musicBegun = false, streak = 0, best = 0;
+const chords = [[261.6,329.6,392],[220,261.6,329.6],[174.6,220,261.6],[196,246.9,293.7]];
+const pat = [0,1,2,1,2,1,0,1];
+function note(f,d,v,type){ const o=ac.createOscillator(), g=ac.createGain(); o.type=type; o.frequency.value=f; const t=ac.currentTime; g.gain.setValueAtTime(.0001,t); g.gain.linearRampToValueAtTime(v,t+.08); g.gain.exponentialRampToValueAtTime(.0001,t+d); o.connect(g); g.connect(master); o.start(t); o.stop(t+d+.05); }
+function step(){ if(!musicOn||!ac) return; try{ const bar=Math.floor(tick/8)%4, i=tick%8, c=chords[bar]; if(i===0) note(c[0]/2,5.4,.05,"sine"); note(c[pat[i]]*(i>=4?2:1),1.6,.045,"triangle"); }catch(e){} tick++; }
+function startMusic(){
+if(!musicOn||mt) return;
+try{
+ac = ac || new (window.AudioContext||window.webkitAudioContext)();
+if(ac.state==="suspended") ac.resume();
+if(!master){ master=ac.createGain(); master.gain.value=.55; const dly=ac.createDelay(); dly.delayTime.value=.38; const fb=ac.createGain(); fb.gain.value=.35; dly.connect(fb); fb.connect(dly); master.connect(ac.destination); master.connect(dly); dly.connect(ac.destination); }
+}catch(e){ return; }
+musicBegun = true; mt = setInterval(step,700); step();
+}
+function stopMusic(){ clearInterval(mt); mt=null; }
+function toggleMusic(){ musicOn=!musicOn; document.getElementById("music").textContent = musicOn ? "🎵" : "🔕"; if(musicOn) startMusic(); else stopMusic(); }
+document.addEventListener("visibilitychange",()=>{ if(document.hidden) stopMusic(); else if(musicOn && musicBegun) startMusic(); });
+document.addEventListener("click",e=>{ const b=e.target.closest("button"); if(!b) return; const r=b.getBoundingClientRect(); const s=document.createElement("span"); s.className="rip"; s.style.left=(e.clientX-r.left)+"px"; s.style.top=(e.clientY-r.top)+"px"; b.appendChild(s); setTimeout(()=>s.remove(),650); });
+function updateStreak(){
+const box=document.getElementById("streak"); box.innerHTML="";
+const a=document.createElement("span"); a.textContent="⭐ Score : "+score+" / "+currentQuestions.length;
+const b=document.createElement("span"); b.textContent="🔥 Série : "+streak; if(streak>=2) b.className="hot";
+box.append(a,b);
+}
+function updateUI(){
+document.getElementById("timer").textContent = timeLeft;
+document.getElementById("ringfg").style.strokeDashoffset = 163.4 * (1 - timeLeft/30);
+document.getElementById("ring").classList.toggle("low", timeLeft <= 10);
+if(soundOn && timeLeft<=5 && timeLeft>0) tone(900,0,.05,.05);
+}
+function confetti(){
+if(window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+const cols=["#064a9b","#0755ae","#5aa0f0","#9cc4f5","#033b7c"];
+for(let i=0;i<60;i++){ const c=document.createElement("div"); c.className="confetti"; c.style.left=Math.random()*100+"vw"; c.style.background=cols[i%cols.length]; c.style.animationDuration=(2+Math.random()*2.5)+"s"; c.style.animationDelay=Math.random()*.8+"s"; document.body.appendChild(c); setTimeout(()=>c.remove(),5500); }
+}
+function finishExtras(pct){
+document.getElementById("finalScore").innerHTML += "<br>Meilleure série : " + best + " 🔥";
+const medal = pct>=80 ? "🥇" : pct>=50 ? "🥈" : "🥉";
+document.getElementById("medal").textContent = medal;
+document.getElementById("msg").textContent = pct>=80 ? "Bravo " + playerName + " !" : pct>=50 ? "Bon travail, continuez !" : "Courage, réessayez !";
+if(pct>=50){ confetti(); sfx(true); } else { sfx(false); }
+setTimeout(()=>{ document.getElementById("resfg").style.strokeDashoffset = 326.7*(1-pct/100); },100);
+let n=0; const iv=setInterval(()=>{ n=Math.min(pct,n+Math.max(1,Math.round(pct/40))); document.getElementById("respct").textContent=n+"%"; if(n>=pct) clearInterval(iv); },40);
+const cert=document.getElementById("cert"); cert.innerHTML="";
+[["small","INSTITUTION MIXTE FRÈRE ALEXIS"],["h3","Certificat de participation"],["small","Décerné à"],["div",playerName,"nm"],["small",selectedSubject+" — "+pct+"%"]].forEach(x=>{ const e=document.createElement(x[0]); e.textContent=x[1]; if(x[2]) e.className=x[2]; cert.appendChild(e); });
+let list=[];
+try{ list = JSON.parse(localStorage.getItem("imfa_scores")||"[]"); }catch(e){}
+list.push({n:playerName,m:selectedSubject,p:pct});
+list.sort((a,b)=>b.p-a.p); list=list.slice(0,5);
+try{ localStorage.setItem("imfa_scores", JSON.stringify(list)); }catch(e){}
+const box=document.getElementById("board"); box.innerHTML="<h3>🏆 Meilleurs résultats</h3>";
+const ol=document.createElement("ol");
+list.forEach((r,i)=>{ const li=document.createElement("li"); const a=document.createElement("span"); a.textContent=(i+1)+". "+r.n+" — "+r.m; const b=document.createElement("b"); b.textContent=r.p+"%"; li.append(a,b); ol.appendChild(li); });
+box.appendChild(ol);
+}
+const subjectBox = document.getElementById("subjects");
+
+subjects.forEach(subject => {
+const div = document.createElement("div");
+div.className = "subject";
+div.innerHTML = '<span class="ico">' + (icons[subject] || "📘") + '</span><span>' + subject + '</span>';
+div.onclick = () => chooseSubject(subject);
+subjectBox.appendChild(div);
+});
+
+function start() {
+playerName = document.getElementById("player").value.trim();
+if (!playerName) {
+alert("Veuillez entrer votre pseudonyme.");
+return;
+}
+document.getElementById("welcome").classList.add("hidden");
+startMusic();
+if(soundOn) tone(520,0,.12,.1);
+const h = new Date().getHours();
+document.getElementById("greet").textContent = (h < 18 ? "Bonjour, " : "Bonsoir, ") + playerName + " ! Prêt(e) à relever le défi ?";
+document.getElementById("selection").classList.remove("hidden");
+}
+
+function chooseSubject(subject) {
+selectedSubject = subject;
+if (!questions[subject] || questions[subject].length === 0) {
+alert("Aucune question disponible.");
+return;
+}
+currentQuestions = [...questions[subject]];
+index = 0;
+score = 0;
+streak = 0;
+best = 0;
+if(soundOn) tone(520,0,.12,.1);
+document.getElementById("currentSubject").textContent = subject;
+document.getElementById("currentLevel").textContent =
+document.getElementById("level").value;
+document.getElementById("selection").classList.add("hidden");
+document.getElementById("quiz").classList.remove("hidden");
+showQuestion();
+}
+
+function showQuestion() {
+answered = false;
+timeLeft = 30;
+updateUI();
+updateStreak();
+document.getElementById("barlabel").textContent = "Question " + (index + 1) + " / " + currentQuestions.length;
+document.getElementById("barfill").style.width = ((index + 1) / currentQuestions.length * 100) + "%";
+document.getElementById("feedback").textContent = "";
+document.getElementById("next").classList.add("hidden");
+const q = currentQuestions[index];
+document.getElementById("question").textContent =
+(index + 1) + ". " + q.q;
+const answers = document.getElementById("answers");
+answers.innerHTML = "";
+q.a.forEach((answer, i) => {
+const button = document.createElement("button");
+button.className = "option";
+const L = document.createElement("span"); L.className = "let"; L.textContent = "ABCD"[i]; const T = document.createElement("span"); T.textContent = answer; button.append(L, T);
+button.onclick = () => checkAnswer(i);
+answers.appendChild(button);
+});
+timer = setInterval(() => {
+timeLeft--;
+updateUI();
+if (timeLeft <= 0) {
+clearInterval(timer);
+checkAnswer(-1);
+}
+}, 1000);
+}
+
+function checkAnswer(choice) {
+if (answered) return;
+answered = true;
+clearInterval(timer);
+const q = currentQuestions[index];
+sfx(choice === q.correct);
+if(choice === q.correct){ streak++; best = Math.max(best, streak); } else { streak = 0; }
+const buttons = document.querySelectorAll(".option");
+buttons.forEach((button, i) => {
+button.disabled = true;
+if (i === q.correct) {
+button.style.background = "#c8f7d0"; button.classList.add("correct");
+} else if (i === choice) {
+button.style.background = "#ffd1d1"; button.classList.add("wrong");
+}
+});
+if (choice === q.correct) {
+score++;
+document.getElementById("feedback").textContent =
+"Bonne réponse ! " + q.explanation;
+} else if (choice === -1) {
+document.getElementById("feedback").textContent =
+"Temps écoulé ! " + q.explanation;
+} else {
+document.getElementById("feedback").textContent =
+"Mauvaise réponse. " + q.explanation;
+}
+document.getElementById("next").classList.remove("hidden");
+updateStreak();
+}
+
+function nextQuestion() {
+index++;
+if (index < currentQuestions.length) {
+showQuestion();
+} else {
+finishQuiz();
+}
+}
+
+function finishQuiz() {
+document.getElementById("quiz").classList.add("hidden");
+document.getElementById("result").classList.remove("hidden");
+const percentage = Math.round(
+(score / currentQuestions.length) * 100
+);
+document.getElementById("finalScore").innerHTML =
+"<strong>" + playerName + "</strong>, votre quiz est terminé !<br><br>" +
+"Matière : " + selectedSubject + "<br>" +
+"Bonnes réponses : " + score + " / " + currentQuestions.length + "<br>" +
+"Résultat : " + percentage + "%";
+finishExtras(percentage);
+}
+</script>
+<script src="questions.js"></script>
+<script src="questions_niveau2.js"></script>
+<script src="questions_niveau1_suite.js"></script>
+<script src="physique_facile_p1.js"></script>
+<script src="physique_facile_p11.js"></script>
+<script src="physique_facile_p12.js"></script>
+<script src="physique_facile_p2.js"></script>
+<script src="physique_facile_p3.js"></script>
+<script src="physique_facile_p4.js"></script>
+<script src="physique_facile_p5.js"></script>
+<script src="physique_facile_p6.js"></script>
+<script src="physique_facile_p7.js"></script>
+<script src="physique_facile_p8.js"></script>
+<script src="physique_facile_p9.js"></script>
+<script src="physique_moyen_p1.js"></script>
+<script src="physique_moyen_p10.js"></script>
+<script src="physique_moyen_p11.js"></script>
+<script src="physique_moyen_p12.js"></script>
+<script src="physique_moyen_p13.js"></script>
+<script src="physique_moyen_p2.js"></script>
+<script src="physique_moyen_p3.js"></script>
+<script src="physique_moyen_p4.js"></script>
+<script src="physique_moyen_p5.js"></script>
+<script src="physique_moyen_p6.js"></script>
+<script src="physique_moyen_p7.js"></script>
+<script src="physique_moyen_p8.js"></script>
+<script src="physique_moyen_p9.js"></script>
+<script src="physique_difficile_p1.js"></script>
+<script src="physique_difficile_p2.js"></script>
+<script src="physique_difficile_p3.js"></script>
+<script src="physique_difficile_p4.js"></script>
+<script src="physique_difficile_p5.js"></script>
+<script src="physique_difficile_p6.js"></script>
+<script src="chimie_facile_p1.js"></script>
+<script src="chimie_facile_p2.js"></script>
+<script src="chimie_facile_p3a.js"></script>
+<script src="chimie_facile_p3b.js"></script>
+<script src="chimie_facile_p4a.js"></script>
+<script src="chimie_facile_p4b.js"></script>
+<script src="chimie_facile_p5a.js"></script>
+<script src="chimie_facile_p5b.js"></script>
+<script src="chimie_moyen_p1a.js"></script>
+<script src="chimie_moyen_p1b.js"></script>
+<script src="chimie_moyen_p2a.js"></script>
+<script src="chimie_moyen_p2b.js"></script>
+<script src="chimie_moyen_p3a.js"></script>
+<script src="chimie_moyen_p3b.js"></script>
+<script src="chimie_moyen_p4a.js"></script>
+<script src="chimie_moyen_p4b.js"></script>
+<script src="chimie_difficile_p1a.js"></script>
+<script src="chimie_difficile_p1b.js"></script>
+<script src="chimie_difficile_p2a.js"></script>
+<script src="chimie_difficile_p2b.js"></script>
+<script src="chimie_difficile_p3a.js"></script>
+<script src="chimie_difficile_p3b.js"></script>
+<script src="chimie_difficile_p4a.js"></script>
+<script src="chimie_difficile_p4b.js"></script>
+<script src="solo.js"></script>
+<script src="parties.js"></script>
+</body>
+</html>

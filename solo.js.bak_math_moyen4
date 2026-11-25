@@ -1,0 +1,188 @@
+// IMFA QUIZ - Mòd Solo
+const MAX_LEVEL = 5;
+
+function getAllQuestions() {
+  const lists = [
+    typeof QUESTIONS !== "undefined" ? QUESTIONS : [],
+    typeof QUESTIONS_NIVEAU2 !== "undefined" ? QUESTIONS_NIVEAU2 : [],
+    typeof QUESTIONS_NIVEAU1_SUITE !== "undefined" ? QUESTIONS_NIVEAU1_SUITE : [],
+    typeof PHYSIQUE_FACILE_P1 !== "undefined" ? PHYSIQUE_FACILE_P1 : [],
+    typeof PHYSIQUE_FACILE_P2 !== "undefined" ? PHYSIQUE_FACILE_P2 : [],
+    typeof PHYSIQUE_FACILE_P3 !== "undefined" ? PHYSIQUE_FACILE_P3 : [],
+    typeof PHYSIQUE_FACILE_P4 !== "undefined" ? PHYSIQUE_FACILE_P4 : [],
+    typeof PHYSIQUE_FACILE_P5 !== "undefined" ? PHYSIQUE_FACILE_P5 : [],
+    typeof PHYSIQUE_FACILE_P6 !== "undefined" ? PHYSIQUE_FACILE_P6 : [],
+    typeof PHYSIQUE_FACILE_P7 !== "undefined" ? PHYSIQUE_FACILE_P7 : [],
+    typeof PHYSIQUE_FACILE_P8 !== "undefined" ? PHYSIQUE_FACILE_P8 : [],
+    typeof PHYSIQUE_FACILE_P9 !== "undefined" ? PHYSIQUE_FACILE_P9 : [],
+    typeof PHYSIQUE_FACILE_P11 !== "undefined" ? PHYSIQUE_FACILE_P11 : [],
+    typeof PHYSIQUE_FACILE_P12 !== "undefined" ? PHYSIQUE_FACILE_P12 : [],
+    typeof PHYSIQUE_MOYEN_P1 !== "undefined" ? PHYSIQUE_MOYEN_P1 : [],
+    typeof PHYSIQUE_MOYEN_P2 !== "undefined" ? PHYSIQUE_MOYEN_P2 : [],
+    typeof PHYSIQUE_MOYEN_P3 !== "undefined" ? PHYSIQUE_MOYEN_P3 : [],
+    typeof PHYSIQUE_MOYEN_P4 !== "undefined" ? PHYSIQUE_MOYEN_P4 : [],
+    typeof PHYSIQUE_MOYEN_P5 !== "undefined" ? PHYSIQUE_MOYEN_P5 : [],
+    typeof PHYSIQUE_MOYEN_P6 !== "undefined" ? PHYSIQUE_MOYEN_P6 : [],
+    typeof PHYSIQUE_MOYEN_P7 !== "undefined" ? PHYSIQUE_MOYEN_P7 : [],
+    typeof PHYSIQUE_MOYEN_P8 !== "undefined" ? PHYSIQUE_MOYEN_P8 : [],
+    typeof PHYSIQUE_MOYEN_P9 !== "undefined" ? PHYSIQUE_MOYEN_P9 : [],
+    typeof PHYSIQUE_MOYEN_P10 !== "undefined" ? PHYSIQUE_MOYEN_P10 : [],
+    typeof PHYSIQUE_MOYEN_P11 !== "undefined" ? PHYSIQUE_MOYEN_P11 : [],
+    typeof PHYSIQUE_MOYEN_P12 !== "undefined" ? PHYSIQUE_MOYEN_P12 : [],
+    typeof PHYSIQUE_MOYEN_P13 !== "undefined" ? PHYSIQUE_MOYEN_P13 : [],
+    typeof PHYSIQUE_DIFFICILE_P1 !== "undefined" ? PHYSIQUE_DIFFICILE_P1 : [],
+    typeof PHYSIQUE_DIFFICILE_P2 !== "undefined" ? PHYSIQUE_DIFFICILE_P2 : [],
+    typeof PHYSIQUE_DIFFICILE_P3 !== "undefined" ? PHYSIQUE_DIFFICILE_P3 : [],
+    typeof PHYSIQUE_DIFFICILE_P4 !== "undefined" ? PHYSIQUE_DIFFICILE_P4 : [],
+    typeof PHYSIQUE_DIFFICILE_P5 !== "undefined" ? PHYSIQUE_DIFFICILE_P5 : [],
+    typeof PHYSIQUE_DIFFICILE_P6 !== "undefined" ? PHYSIQUE_DIFFICILE_P6 : [],
+    typeof CHIMIE_FACILE_P1 !== "undefined" ? CHIMIE_FACILE_P1 : [],
+    typeof CHIMIE_FACILE_P2 !== "undefined" ? CHIMIE_FACILE_P2 : [],
+    typeof CHIMIE_FACILE_P3A !== "undefined" ? CHIMIE_FACILE_P3A : [],
+    typeof CHIMIE_FACILE_P3B !== "undefined" ? CHIMIE_FACILE_P3B : [],
+    typeof CHIMIE_FACILE_P4A !== "undefined" ? CHIMIE_FACILE_P4A : [],
+    typeof CHIMIE_FACILE_P4B !== "undefined" ? CHIMIE_FACILE_P4B : [],
+    typeof CHIMIE_FACILE_P5A !== "undefined" ? CHIMIE_FACILE_P5A : [],
+    typeof CHIMIE_FACILE_P5B !== "undefined" ? CHIMIE_FACILE_P5B : [],
+    typeof CHIMIE_MOYEN_P2A !== "undefined" ? CHIMIE_MOYEN_P2A : [],
+    typeof CHIMIE_MOYEN_P2B !== "undefined" ? CHIMIE_MOYEN_P2B : [],
+  
+    typeof CHIMIE_MOYEN_P1A !== "undefined" ? CHIMIE_MOYEN_P1A : [],
+
+    typeof CHIMIE_MOYEN_P1B !== "undefined" ? CHIMIE_MOYEN_P1B : [],
+
+    typeof CHIMIE_MOYEN_P3A !== "undefined" ? CHIMIE_MOYEN_P3A : [],
+
+    typeof CHIMIE_MOYEN_P3B !== "undefined" ? CHIMIE_MOYEN_P3B : [],
+
+    typeof CHIMIE_MOYEN_P4A !== "undefined" ? CHIMIE_MOYEN_P4A : [],
+
+    typeof CHIMIE_MOYEN_P4B !== "undefined" ? CHIMIE_MOYEN_P4B : [],
+
+    typeof CHIMIE_DIFFICILE_P1A !== "undefined" ? CHIMIE_DIFFICILE_P1A : [],
+
+    typeof CHIMIE_DIFFICILE_P1B !== "undefined" ? CHIMIE_DIFFICILE_P1B : [],
+
+    typeof CHIMIE_DIFFICILE_P2A !== "undefined" ? CHIMIE_DIFFICILE_P2A : [],
+
+    typeof CHIMIE_DIFFICILE_P2B !== "undefined" ? CHIMIE_DIFFICILE_P2B : [],
+
+    typeof CHIMIE_DIFFICILE_P3A !== "undefined" ? CHIMIE_DIFFICILE_P3A : [],
+
+    typeof CHIMIE_DIFFICILE_P3B !== "undefined" ? CHIMIE_DIFFICILE_P3B : [],
+
+    typeof CHIMIE_DIFFICILE_P4A !== "undefined" ? CHIMIE_DIFFICILE_P4A : [],
+
+    typeof CHIMIE_DIFFICILE_P4B !== "undefined" ? CHIMIE_DIFFICILE_P4B : [],
+    typeof HISTOIRE_DIFFICILE_P1A !== "undefined" ? HISTOIRE_DIFFICILE_P1A : [],
+    typeof HISTOIRE_DIFFICILE_P1B !== "undefined" ? HISTOIRE_DIFFICILE_P1B : [],
+    typeof HISTOIRE_DIFFICILE_P2A !== "undefined" ? HISTOIRE_DIFFICILE_P2A : [],
+    typeof HISTOIRE_DIFFICILE_P2B !== "undefined" ? HISTOIRE_DIFFICILE_P2B : [],
+    typeof HISTOIRE_DIFFICILE_P3A !== "undefined" ? HISTOIRE_DIFFICILE_P3A : [],
+    typeof HISTOIRE_DIFFICILE_P3B !== "undefined" ? HISTOIRE_DIFFICILE_P3B : [],
+    typeof HISTOIRE_DIFFICILE_P4A !== "undefined" ? HISTOIRE_DIFFICILE_P4A : [],
+    typeof HISTOIRE_DIFFICILE_P4B !== "undefined" ? HISTOIRE_DIFFICILE_P4B : [],
+    typeof HISTOIRE_FACILE_P1A !== "undefined" ? HISTOIRE_FACILE_P1A : [],
+    typeof HISTOIRE_FACILE_P1B !== "undefined" ? HISTOIRE_FACILE_P1B : [],
+    typeof HISTOIRE_FACILE_P2A !== "undefined" ? HISTOIRE_FACILE_P2A : [],
+    typeof HISTOIRE_FACILE_P2B !== "undefined" ? HISTOIRE_FACILE_P2B : [],
+    typeof HISTOIRE_FACILE_P3A !== "undefined" ? HISTOIRE_FACILE_P3A : [],
+    typeof HISTOIRE_FACILE_P3B !== "undefined" ? HISTOIRE_FACILE_P3B : [],
+    typeof HISTOIRE_FACILE_P4A !== "undefined" ? HISTOIRE_FACILE_P4A : [],
+    typeof HISTOIRE_FACILE_P4B !== "undefined" ? HISTOIRE_FACILE_P4B : [],
+    typeof HISTOIRE_MOYEN_P1A !== "undefined" ? HISTOIRE_MOYEN_P1A : [],
+    typeof HISTOIRE_MOYEN_P1B !== "undefined" ? HISTOIRE_MOYEN_P1B : [],
+    typeof HISTOIRE_MOYEN_P2A !== "undefined" ? HISTOIRE_MOYEN_P2A : [],
+    typeof HISTOIRE_MOYEN_P2B !== "undefined" ? HISTOIRE_MOYEN_P2B : [],
+    typeof HISTOIRE_MOYEN_P3A !== "undefined" ? HISTOIRE_MOYEN_P3A : [],
+    typeof HISTOIRE_MOYEN_P3B !== "undefined" ? HISTOIRE_MOYEN_P3B : [],
+    typeof HISTOIRE_MOYEN_P4A !== "undefined" ? HISTOIRE_MOYEN_P4A : [],
+    typeof HISTOIRE_MOYEN_P4B !== "undefined" ? HISTOIRE_MOYEN_P4B : [],
+    typeof educationCitoyennete_facile_p1 !== "undefined" ? educationCitoyennete_facile_p1 : [],
+    typeof educationCitoyennete_facile_p2 !== "undefined" ? educationCitoyennete_facile_p2 : [],
+    typeof educationCitoyennete_facile_p3 !== "undefined" ? educationCitoyennete_facile_p3 : [],
+    typeof educationCitoyennete_facile_p4 !== "undefined" ? educationCitoyennete_facile_p4 : [],
+    typeof educationCitoyennete_facile_p5 !== "undefined" ? educationCitoyennete_facile_p5 : [],
+    typeof educationCitoyennete_facile_p6 !== "undefined" ? educationCitoyennete_facile_p6 : [],
+    typeof educationCitoyennete_moyen_p1 !== "undefined" ? educationCitoyennete_moyen_p1 : [],
+    typeof MATHEMATIQUES_FACILE_P1 !== "undefined" ? MATHEMATIQUES_FACILE_P1 : [],
+    typeof MATHEMATIQUES_FACILE_P2 !== "undefined" ? MATHEMATIQUES_FACILE_P2 : [],
+    typeof MATHEMATIQUES_FACILE_P3 !== "undefined" ? MATHEMATIQUES_FACILE_P3 : [],
+    typeof MATHEMATIQUES_FACILE_P4 !== "undefined" ? MATHEMATIQUES_FACILE_P4 : [],
+    typeof MATHEMATIQUES_FACILE_P5 !== "undefined" ? MATHEMATIQUES_FACILE_P5 : [],
+    typeof mathematiquesFacileP7 !== "undefined" ? mathematiquesFacileP7 : [],
+    typeof mathematiquesMoyenP1 !== "undefined" ? mathematiquesMoyenP1 : [],
+    typeof mathematiquesMoyenP2 !== "undefined" ? mathematiquesMoyenP2 : [],
+    typeof mathematiquesMoyenP3 !== "undefined" ? mathematiquesMoyenP3 : [],
+    typeof mathematiquesFacileP6 !== "undefined" ? mathematiquesFacileP6 : [],
+];
+  const seenIds = new Set();
+  return lists.flat().filter(q => {
+    if (!q || !q.id) return false;
+
+    if (q.matiere === "Histoire") {
+      q = { ...q, matiere: "Sciences sociales" };
+    }
+
+    const key = `${q.matiere}|${q.difficulte}|${q.id}`;
+    if (seenIds.has(key)) return false;
+    seenIds.add(key);
+    return true;
+  }).map(q => ({
+    ...q,
+    explanation: q.explanation || (q.explications ? q.explications[q.correct] : "")
+  }));
+}
+
+let soloUsed = new Set();
+let soloLevel = 1;
+let soloSubject = "";
+let partAnswered = 0;
+let partCorrect = 0;
+let soloSeen = 0;
+const PART_SIZE = 5;
+const PASS_MIN = 3;
+
+function soloStart(subject) {
+  soloSubject = subject;
+  soloLevel = 1;
+  soloUsed = new Set();
+  partAnswered = 0;
+  partCorrect = 0;
+  soloSeen = 0;
+  return soloDraw();
+}
+
+function soloDraw() {
+  const pool = getAllQuestions().filter(q =>
+    q.matiere === soloSubject && q.difficulte === soloLevel && !soloUsed.has(q.id)
+  );
+  if (pool.length === 0) return null;
+  const q = pool[Math.floor(Math.random() * pool.length)];
+  soloUsed.add(q.id);
+  return q;
+}
+
+function soloAfterAnswer(wasCorrect) {
+  partAnswered++;
+  if (wasCorrect) partCorrect++;
+
+  if (partAnswered < PART_SIZE) {
+    const q = soloDraw();
+    if (q) return { status: "continue", q: q };
+    return { status: "finished", summary: { level: soloLevel, correct: partCorrect, total: partAnswered, passed: false } };
+  }
+
+  const passed = partCorrect >= PASS_MIN;
+  const summary = { level: soloLevel, correct: partCorrect, total: PART_SIZE, passed: passed };
+  partAnswered = 0;
+  partCorrect = 0;
+
+  if (passed) {
+    if (soloLevel >= MAX_LEVEL) return { status: "finished", summary: summary };
+    soloLevel++;
+  }
+  const q = soloDraw();
+  if (!q) return { status: "finished", summary: summary };
+  return { status: passed ? "part_passed" : "part_failed", summary: summary, q: q };
+}

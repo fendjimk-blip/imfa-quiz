@@ -226,7 +226,7 @@ button{position:relative;overflow:hidden}
 <h2>Bienvenue sur IMFA QUIZ !</h2>
 <p>Testez vos connaissances et relevez le défi !</p>
 <input type="text" id="player" placeholder="Entrez votre pseudonyme">
-<button onclick="start()">Commencer</button>
+<button onclick="window.start()">Commencer</button>
 </section>
 
 <section class="card hidden" id="selection">
@@ -402,12 +402,6 @@ div.onclick = () => chooseSubject(subject);
 subjectBox.appendChild(div);
 });
 
-function start() {
-playerName = document.getElementById("player").value.trim();
-if (!playerName) {
-alert("Veuillez entrer votre pseudonyme.");
-return;
-}
 document.getElementById("welcome").classList.add("hidden");
 startMusic();
 if(soundOn) tone(520,0,.12,.1);
@@ -622,7 +616,15 @@ finishExtras(percentage);
 <script src="mathematiques_difficile_p1.js"></script>
 <script src="mathematiques_difficile_p2.js"></script>
 <script src="mathematiques_difficile_p3.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth.js"></script>
+<script src="pam.js"></script>
 <script src="solo.js"></script>
 <script src="parties.js"></script>
+<script src="sync.js"></script>
+<script src="flow.js"></script>
 </body>
 </html>
