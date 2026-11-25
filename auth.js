@@ -94,6 +94,7 @@ async function authSubmit() {
       { pseudo: pseudo, nom: nom, classe: selectedClasse, email: email }, { merge: true });
 
     if (window.syncFromCloud) await window.syncFromCloud();
+    if (window.renderSubjects) renderSubjects();
     playerName = pseudo;
     document.getElementById("authScreen").classList.add("hidden");
     document.getElementById("selection").classList.remove("hidden");
