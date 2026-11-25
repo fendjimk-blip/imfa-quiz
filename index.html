@@ -274,9 +274,9 @@ button{position:relative;overflow:hidden}
 
 <script>
 const subjects = [
-"Sciences sociales","Physique","Éducation Physique et Sportive (EPS)",
-"Éducation à la citoyenneté","Biologie","Géologie","Mathématiques","Littérature haïtienne",
-"Français","Chimie","Anglais","Espagnol"
+  "Chimie", "Physique", "Mathématiques", "Biologie", "Français",
+  "Anglais", "Géographie", "Histoire - Secondaire", "Éducation civique",
+  "Sociologie et éducation civique - Secondaire", "Économie - Secondaire"
 ];
 
 const questions = {
@@ -407,7 +407,6 @@ startMusic();
 if(soundOn) tone(520,0,.12,.1);
 const h = new Date().getHours();
 document.getElementById("greet").textContent = (h < 18 ? "Bonjour, " : "Bonsoir, ") + playerName + " ! Prêt(e) à relever le défi ?";
-document.getElementById("selection").classList.remove("hidden");
 }
 
 function chooseSubject(subject) {
