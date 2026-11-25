@@ -84,23 +84,26 @@ async function authSubmit() {
         throw e2;
       }
     }
+
     const ud = await db.collection("users").doc(auth.currentUser.uid).get();
     if (ud.exists && ud.data().actif === false) {
       await auth.signOut();
       return setAuthMsg("Kont sa a bloke. Kontakte pwofesè a.");
     }
+
     const pseudo = nom + " " + selectedClasse;
     await db.collection("users").doc(auth.currentUser.uid).set(
       { pseudo: pseudo, nom: nom, classe: selectedClasse, email: email }, { merge: true });
 
     if (window.syncFromCloud) await window.syncFromCloud();
-    if (window.renderSubjects) renderSubjects();
     playerName = pseudo;
+    if (window.renderSubjects) renderSubjects();
     document.getElementById("authScreen").classList.add("hidden");
     document.getElementById("selection").classList.remove("hidden");
     setAuthMsg("");
   } catch (e) {
-    setAuthMsg("Erè: " + e.code);
+    console.error(e);
+    setAuthMsg("Erè: " + (e.code || e.name || "san kòd") + " — " + (e.message || String(e)));
   }
 }
 
@@ -122,7 +125,7 @@ async function showClassmates() {
   }
   el.innerHTML = "";
   const h = document.createElement("h2");
-  h.textContent = "Klas " + classe + " (" + names.length + " elèv)";
+  h.textContent = "Klas " + classe + " (" + names.length + " élèves)";
   el.appendChild(h);
   const ul = document.createElement("ul");
   names.forEach(n => {
@@ -147,7 +150,7 @@ function addClasseButton() {
   if (document.getElementById("classmatesBtn")) return;
   const b = document.createElement("button");
   b.id = "classmatesBtn";
-  b.textContent = "👥 Elèv nan klas mwen";
+  b.textContent = "👥 Élèves de ma classe";
   b.onclick = showClassmates;
   document.getElementById("selection").appendChild(b);
 }
@@ -156,9 +159,4 @@ document.addEventListener("DOMContentLoaded", () => {
   buildAuthScreen();
   addClasseButton();
   document.getElementById("selection").classList.add("hidden");
-  // Ranplase start() ki nan index.html pou bouton Kòmanse a ale nan koneksyon an
-  window.start = function () {
-    document.getElementById("welcome").classList.add("hidden");
-    document.getElementById("authScreen").classList.remove("hidden");
-  };
 });

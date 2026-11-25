@@ -1,5 +1,11 @@
-// IMFA QUIZ - Ekran yo: yon sèl ekran aktif alafwa
+// IMFA QUIZ - Chemen prensipal: Commencer -> koneksyon -> matyè -> pati -> kesyon
 const SCREEN_IDS = ["welcome", "authScreen", "selection", "partsScreen", "quiz", "result", "classmatesScreen", "adminScreen"];
+
+const SUBJECTS_LIST = [
+  "Chimie", "Physique", "Mathématiques", "Biologie", "Français",
+  "Anglais", "Géographie", "Histoire - Secondaire", "Éducation civique",
+  "Sociologie et éducation civique - Secondaire", "Économie - Secondaire"
+];
 
 function showScreen(id) {
   SCREEN_IDS.forEach(x => {
@@ -8,12 +14,11 @@ function showScreen(id) {
   });
 }
 
-// Ranpli lis matyè yo (sa ki te vid la)
 function renderSubjects() {
   const box = document.getElementById("subjects");
-  if (!box || typeof subjects === "undefined") return;
+  if (!box) return;
   box.innerHTML = "";
-  subjects.forEach(s => {
+  SUBJECTS_LIST.forEach(s => {
     const d = document.createElement("div");
     d.className = "subject";
     d.textContent = s;
@@ -22,7 +27,19 @@ function renderSubjects() {
   });
 }
 
-// Kache chwa nivo a (Débutant / Niveau de difficulté)
+function chooseSubject(s) {
+  if (typeof getAllQuestions !== "function") {
+    alert("Erè: kesyon yo pa chaje.");
+    return;
+  }
+  const n = getAllQuestions().filter(q => q.matiere === s).length;
+  if (n === 0) {
+    alert("Pa gen kesyon pou " + s + " ankò.");
+    return;
+  }
+  showParts(s);
+}
+
 function hideLevelChoice() {
   const sel = document.getElementById("level");
   if (sel) sel.style.display = "none";

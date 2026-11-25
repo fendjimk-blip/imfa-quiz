@@ -392,15 +392,7 @@ const ol=document.createElement("ol");
 list.forEach((r,i)=>{ const li=document.createElement("li"); const a=document.createElement("span"); a.textContent=(i+1)+". "+r.n+" — "+r.m; const b=document.createElement("b"); b.textContent=r.p+"%"; li.append(a,b); ol.appendChild(li); });
 box.appendChild(ol);
 }
-const subjectBox = document.getElementById("subjects");
-
-subjects.forEach(subject => {
-const div = document.createElement("div");
-div.className = "subject";
-div.innerHTML = '<span class="ico">' + (icons[subject] || "📘") + '</span><span>' + subject + '</span>';
-div.onclick = () => chooseSubject(subject);
-subjectBox.appendChild(div);
-});
+/* lis matyè ranpli pa flow.js */
 
 document.getElementById("welcome").classList.add("hidden");
 startMusic();
@@ -514,63 +506,6 @@ document.getElementById("finalScore").innerHTML =
 finishExtras(percentage);
 }
 </script>
-<script src="questions.js"></script>
-<script src="questions_niveau2.js"></script>
-<script src="questions_niveau1_suite.js"></script>
-<script src="physique_facile_p1.js"></script>
-<script src="physique_facile_p11.js"></script>
-<script src="physique_facile_p12.js"></script>
-<script src="physique_facile_p2.js"></script>
-<script src="physique_facile_p3.js"></script>
-<script src="physique_facile_p4.js"></script>
-<script src="physique_facile_p5.js"></script>
-<script src="physique_facile_p6.js"></script>
-<script src="physique_facile_p7.js"></script>
-<script src="physique_facile_p8.js"></script>
-<script src="physique_facile_p9.js"></script>
-<script src="physique_moyen_p1.js"></script>
-<script src="physique_moyen_p10.js"></script>
-<script src="physique_moyen_p11.js"></script>
-<script src="physique_moyen_p12.js"></script>
-<script src="physique_moyen_p13.js"></script>
-<script src="physique_moyen_p2.js"></script>
-<script src="physique_moyen_p3.js"></script>
-<script src="physique_moyen_p4.js"></script>
-<script src="physique_moyen_p5.js"></script>
-<script src="physique_moyen_p6.js"></script>
-<script src="physique_moyen_p7.js"></script>
-<script src="physique_moyen_p8.js"></script>
-<script src="physique_moyen_p9.js"></script>
-<script src="physique_difficile_p1.js"></script>
-<script src="physique_difficile_p2.js"></script>
-<script src="physique_difficile_p3.js"></script>
-<script src="physique_difficile_p4.js"></script>
-<script src="physique_difficile_p5.js"></script>
-<script src="physique_difficile_p6.js"></script>
-<script src="chimie_facile_p1.js"></script>
-<script src="chimie_facile_p2.js"></script>
-<script src="chimie_facile_p3a.js"></script>
-<script src="chimie_facile_p3b.js"></script>
-<script src="chimie_facile_p4a.js"></script>
-<script src="chimie_facile_p4b.js"></script>
-<script src="chimie_facile_p5a.js"></script>
-<script src="chimie_facile_p5b.js"></script>
-<script src="chimie_moyen_p1a.js"></script>
-<script src="chimie_moyen_p1b.js"></script>
-<script src="chimie_moyen_p2a.js"></script>
-<script src="chimie_moyen_p2b.js"></script>
-<script src="chimie_moyen_p3a.js"></script>
-<script src="chimie_moyen_p3b.js"></script>
-<script src="chimie_moyen_p4a.js"></script>
-<script src="chimie_moyen_p4b.js"></script>
-<script src="chimie_difficile_p1a.js"></script>
-<script src="chimie_difficile_p1b.js"></script>
-<script src="chimie_difficile_p2a.js"></script>
-<script src="chimie_difficile_p2b.js"></script>
-<script src="chimie_difficile_p3a.js"></script>
-<script src="chimie_difficile_p3b.js"></script>
-<script src="chimie_difficile_p4a.js"></script>
-<script src="chimie_difficile_p4b.js"></script>
 <script src="histoire_difficile_p1a.js"></script>
 <script src="histoire_difficile_p1b.js"></script>
 <script src="histoire_difficile_p2a.js"></script>
@@ -619,10 +554,67 @@ finishExtras(percentage);
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 <script src="firebase-config.js"></script>
-<script src="auth.js"></script>
-<script src="pam.js"></script>
+<script src="questions.js"></script>
+<script src="questions_niveau2.js"></script>
+<script src="questions_niveau1_suite.js"></script>
+<script src="physique_difficile_p1.js"></script>
+<script src="physique_difficile_p2.js"></script>
+<script src="physique_difficile_p3.js"></script>
+<script src="physique_difficile_p4.js"></script>
+<script src="physique_difficile_p5.js"></script>
+<script src="physique_difficile_p6.js"></script>
+<script src="physique_facile_p1.js"></script>
+<script src="physique_facile_p11.js"></script>
+<script src="physique_facile_p12.js"></script>
+<script src="physique_facile_p2.js"></script>
+<script src="physique_facile_p3.js"></script>
+<script src="physique_facile_p4.js"></script>
+<script src="physique_facile_p5.js"></script>
+<script src="physique_facile_p6.js"></script>
+<script src="physique_facile_p7.js"></script>
+<script src="physique_facile_p8.js"></script>
+<script src="physique_facile_p9.js"></script>
+<script src="physique_moyen_p1.js"></script>
+<script src="physique_moyen_p10.js"></script>
+<script src="physique_moyen_p11.js"></script>
+<script src="physique_moyen_p12.js"></script>
+<script src="physique_moyen_p13.js"></script>
+<script src="physique_moyen_p2.js"></script>
+<script src="physique_moyen_p3.js"></script>
+<script src="physique_moyen_p4.js"></script>
+<script src="physique_moyen_p5.js"></script>
+<script src="physique_moyen_p6.js"></script>
+<script src="physique_moyen_p7.js"></script>
+<script src="physique_moyen_p8.js"></script>
+<script src="physique_moyen_p9.js"></script>
+<script src="chimie_difficile_p1a.js"></script>
+<script src="chimie_difficile_p1b.js"></script>
+<script src="chimie_difficile_p2a.js"></script>
+<script src="chimie_difficile_p2b.js"></script>
+<script src="chimie_difficile_p3a.js"></script>
+<script src="chimie_difficile_p3b.js"></script>
+<script src="chimie_difficile_p4a.js"></script>
+<script src="chimie_difficile_p4b.js"></script>
+<script src="chimie_facile_p1.js"></script>
+<script src="chimie_facile_p2.js"></script>
+<script src="chimie_facile_p3a.js"></script>
+<script src="chimie_facile_p3b.js"></script>
+<script src="chimie_facile_p4a.js"></script>
+<script src="chimie_facile_p4b.js"></script>
+<script src="chimie_facile_p5a.js"></script>
+<script src="chimie_facile_p5b.js"></script>
+<script src="chimie_moyen_p1a.js"></script>
+<script src="chimie_moyen_p1b.js"></script>
+<script src="chimie_moyen_p2a.js"></script>
+<script src="chimie_moyen_p2b.js"></script>
+<script src="chimie_moyen_p3a.js"></script>
+<script src="chimie_moyen_p3b.js"></script>
+<script src="chimie_moyen_p4a.js"></script>
+<script src="chimie_moyen_p4b.js"></script>
 <script src="solo.js"></script>
 <script src="parties.js"></script>
+<script src="auth.js"></script>
+<script src="pam.js"></script>
 <script src="sync.js"></script>
 <script src="flow.js"></script>
 </body>
